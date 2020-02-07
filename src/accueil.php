@@ -3,28 +3,34 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PassThèque</title>
-    <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+   <!-- <link rel="stylesheet" type="text/css" href="css/default.css" media="all" />-->
+    <link rel="stylesheet" type="text/css" href="css/modification.css" media="all" />
 
 
 </head>
 
 <body>
-<?php include("nav.php"); ?>
+<?php include "nav.php"; ?>
 
 
     <div id="wrapper">
-        <div id="staff" class="container">
+        <div class="container">
             <div class="title">
                 <h2>Nos Nouveautés</h2>
                 <span>La saga Eragon est désormais disponible !</span>
             </div>
-            <div class="boxA"><img src="images/9782747014403.jpg" width="300" height="450" alt="" /></div>
-            <div class="boxB"><img src="images/9782747014557.jpg" width="300" height="450" alt="" /></div>
-            <div class="boxC"><img src="images/9782747028554.jpg" width="300" height="450" alt="" /></div>
+            <div class="flexPhotos">
+                <div class="boxA"><img src="images/9782747014403.jpg" width="300" height="450" alt="" /></div>
+                <div class="boxB"><img src="images/9782747014557.jpg"  width="300" height="450" alt=""/></div>
+                <div class="boxC"><img src="images/9782747028554.jpg" width="300" height="450" alt="" /></div>
+            </div>
+            
         </div>
         <div id="page" class="container">
-            <div class="boxA">
+            <div class="boxD">
                 <h2>Meilleur auteur<br />
                     <span>Classement des auteurs aux meilleurs ventes en 2019.</span></h2>
                 <ul class="style4">
@@ -36,7 +42,7 @@
                     <li>Aurélie Valognes : 683 338 exemplaires</li>
                 </ul>
             </div>
-            <div class="boxB">
+            <div class="boxE">
                 <h2>A venir<br />
                     <span>N'hésitez pas a nous en suggérer de nouveau  via  l'onglet <strong><a href="#"  title="">Ajouter</a></strong></span></h2>
                 <ul class="style3">
@@ -45,15 +51,15 @@
                         <h3>The Witcher</h3>
                         <p>Beaucoup demandé suite a la série Netflix.</p>
                     </li>
-                    <li>
+                    <li class="first">
                         <p class="date">01<b>MAR</b></p>
                         <h3>Manga</h3>
-                        <p>Nous vous proposerons bientôt un tout nouveau genre.<br />
+                        <p>Nous vous proposerons bientôt un tout nouveau genre.
                             Pour les amoureux de la culture Nippone.</p>
                     </li>
                 </ul>
             </div>
-            <div class="boxC">
+            <div class="boxF">
                 <h2>Voir avec clopro<br />
                     <span>Quoi mettre pour remplir</span></h2>
                 <ul class="style4">
@@ -66,7 +72,7 @@
             </div>
         </div>
     </div>
-<?php include("bas.php"); ?>
+<?php include "bas.php"; ?>
 
 
 </body>

@@ -1,5 +1,5 @@
    <div id="header-banner">
-        <div id="header" class="container">
+        <div id="header">
             <div id="logo">
                 <div classe="imglogo"><img src="images/logo.PNG" width="200" height="200" alt="" /></div>
             </div>
