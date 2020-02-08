@@ -1,3 +1,14 @@
+
+<?php
+try{
+    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
+}
+catch(Exception $e){
+    die('Error :' .$e->getMessage());
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -22,12 +33,34 @@
                 <h2>Nos Nouveautés</h2>
                 <span>La saga Eragon est désormais disponible !</span>
             </div>
-            <div class="flexPhotos">
-                <div class="boxA"><img src="images/9782747014403.jpg" width="300" height="450" alt="" /></div>
-                <div class="boxB"><img src="images/9782747014557.jpg"  width="300" height="450" alt=""/></div>
-                <div class="boxC"><img src="images/9782747028554.jpg" width="300" height="450" alt="" /></div>
-            </div>
             
+            <div class="flexPhotos">
+                <?php $donnees = $reponse = $bdd->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
+                FROM Livre
+                JOIN Auteur ON Livre.isbn = Auteur.idLivre
+                JOIN Personne ON Auteur.idPersonne = Personne.id
+                WHERE Personne.id = 18
+                ORDER BY Livre.annee
+
+                ');
+
+
+                    while($donnees = $reponse->fetch()){
+
+
+                ?>
+                <div class="boxB">
+                <?php
+
+                $image = "images/"."$donnees[isbn]".".jpg";
+
+                print '<img src="'.$image.'" alt="UH-OH"
+                
+                    < width="300" height="450"/>';?></div>
+              
+            <?php   }?>
+            
+        </div>
         </div>
         <div id="page" class="container">
             <div class="boxD">
@@ -44,7 +77,7 @@
             </div>
             <div class="boxE">
                 <h2>A venir<br />
-                    <span>N'hésitez pas a nous en suggérer de nouveau  via  l'onglet <strong><a href="#"  title="">Ajouter</a></strong></span></h2>
+                    <span>N'hésitez pas a nous en suggérer de nouveaux  via  l'onglet <strong><a href="#"  title="">Ajouter</a></strong></span></h2>
                 <ul class="style3">
                     <li class="first">
                         <p class="date"><a href="#">20<b>FEV</b></a></p>
