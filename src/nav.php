@@ -1,7 +1,7 @@
    <div id="header-banner">
         <div id="header">
             <div id="logo">
-                <div classe="imglogo"><img src="images/logo.PNG" width="200" height="200" alt="" /></div>
+                <div classe="imglogo"><img src="images/logo3.PNG" width="200" height="200" alt="" /></div>
             </div>
             <div id="menu">
                 <ul>

@@ -1,7 +1,7 @@
 
 <?php
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
 }
 catch(Exception $e){
     die('Error :' .$e->getMessage());
@@ -30,8 +30,10 @@ catch(Exception $e){
     <div id="wrapper">
         <div class="container">
             <div class="title">
+            <center>
                 <h2>Nos Nouveautés</h2>
-                <span>La saga Eragon est désormais disponible !</span>
+                <p>La saga Eragon est désormais disponible !</p>
+            </center>
             </div>
             
             <div class="flexPhotos">
@@ -41,6 +43,7 @@ catch(Exception $e){
                 JOIN Personne ON Auteur.idPersonne = Personne.id
                 WHERE Personne.id = 18
                 ORDER BY Livre.annee
+                
 
                 ');
 
@@ -56,14 +59,14 @@ catch(Exception $e){
 
                 print '<img src="'.$image.'" alt="UH-OH"
                 
-                    < width="300" height="450"/>';?></div>
+                    < width="200" height="350"/>';?></div>
               
             <?php   }?>
             
         </div>
         </div>
         <div id="page" class="container">
-            <div class="boxD">
+            <div class="boxE">
                 <h2>Meilleur auteur<br />
                     <span>Classement des auteurs aux meilleurs ventes en 2019.</span></h2>
                 <ul class="style4">
@@ -75,7 +78,7 @@ catch(Exception $e){
                     <li>Aurélie Valognes : 683 338 exemplaires</li>
                 </ul>
             </div>
-            <div class="boxE">
+            <div class="boxD">
                 <h2>A venir<br />
                     <span>N'hésitez pas a nous en suggérer de nouveaux  via  l'onglet <strong><a href="#"  title="">Ajouter</a></strong></span></h2>
                 <ul class="style3">
