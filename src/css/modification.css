@@ -38,6 +38,10 @@ body{
     background-color: #FFFFFF;
 
 }
+
+.title{
+    text-align: center;
+}
 /*********************************************************************************/
 /*  Menu                                                                         */
 /*********************************************************************************/
@@ -250,11 +254,8 @@ max-width: 300px;
 height: auto ;
 }
 
-<<<<<<< HEAD
-=======
-
 /******************** mode tablette ***************************/
-@media screen and (min-width: 768px) and (max-width: 1013px){
+@media screen and (min-width: 768px){
     body {
         height: 100%;
     }
@@ -300,6 +301,10 @@ height: auto ;
         text-align: center;
     }
 
+    img{
+        max-width: 300px;
+        height: auto ;
+        }
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
@@ -519,7 +524,9 @@ ul.style4 .first {
         background-color: #FFFFFF;
     }
         .container{
-        margin: 12% 20% 12% 20%;
+            overflow: auto;
+            margin: 0em auto;
+            width: auto ;
         }
     
     body{
@@ -533,9 +540,26 @@ ul.style4 .first {
     
     }
 
+    .title{
+        text-align: center;
+    }
+
+    img{
+        max-width: 400px;
+        height: 300px ;
+        }
+
+        .boxE, .boxD, .boxF {
+            float: left;
+            margin: auto;
+            max-width: 300px;
+            height: 650px;
+        }
+
 /*********************************************************************************/
 /* Header                                                                        */
 /*********************************************************************************/
+
 
 #header-banner {
     background: url(../images/banner.jpg);
@@ -712,44 +736,5 @@ ul.style4 .first {
     border-top: none;
 }
 
-
-}
-
-/*********************************************************************************/
-/* 3-column                                                                      */
-/*********************************************************************************/
-
-.boxA,
-.boxB,
-.boxC {
-    width: 300px;
-}
-
-.boxA,
-.boxB {
-    float: left;
-    margin-right: 50px;
-}
-
-.boxC {
-    float: right;
-}
-
-/*********************************************************************************/
-/* 2-column                                                                      */
-/*********************************************************************************/
-
-.tbox1,
-.tbox2 {
-    width: 575px;
-}
-
-.tbox1 {
-    float: left;
-}
-
-.tbox2 {
-    float: right;
 }
 }
->>>>>>> ae77b1a63831c8a108cf1a527cc2a0accfc4317c

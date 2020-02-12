@@ -1,7 +1,7 @@
 
 <?php
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
+    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
 }
 catch(Exception $e){
     die('Error :' .$e->getMessage());
@@ -19,8 +19,6 @@ catch(Exception $e){
     <title>PassThèque</title>
    <!-- <link rel="stylesheet" type="text/css" href="css/default.css" media="all" />-->
     <link rel="stylesheet" type="text/css" href="css/modification.css" />
-    <link rel="stylesheet" type="text/css" href="css/tab.css" />
-    <link rel="stylesheet" type="text/css" href="css/pc.css"  />
 
 
 </head>
