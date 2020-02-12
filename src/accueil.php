@@ -1,7 +1,7 @@
 
 <?php
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
 }
 catch(Exception $e){
     die('Error :' .$e->getMessage());
@@ -30,10 +30,10 @@ catch(Exception $e){
     <div id="wrapper">
         <div class="container">
             <div class="title">
-            <center>
+           
                 <h2>Nos Nouveautés</h2>
                 <p>La saga Eragon est désormais disponible !</p>
-            </center>
+            
             </div>
             
             <div class="flexPhotos">

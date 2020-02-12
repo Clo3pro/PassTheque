@@ -1,7 +1,7 @@
 
 <?php
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
+    $bdd = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
 }
 catch(Exception $e){
     die('Error :' .$e->getMessage());
@@ -37,6 +37,8 @@ while($donnees = $reponse->fetch()){
    
 
 ?>
+<div id="bloc_Livre">
+    <div id= "image_Livre">
 <?php
 
 $image = "images/"."$donnees[isbn]".".jpg";
@@ -44,12 +46,15 @@ $image = "images/"."$donnees[isbn]".".jpg";
 print '<img src="'.$image.'" alt="texte alternatif" />';
 
 ?>
-    <p><strong>Livre</strong> : <?php echo $donnees['titre']; ?><br />
+</div>
+<div id = "text_Livre">
+    <p id="affich_Liv"><strong>Livre</strong> : <?php echo $donnees['titre']; ?><br />
     écrit par : <?php echo $donnees['prenom']; ?> <?php echo $donnees['nom']; ?>
     en : <?php echo $donnees['annee'];?>
    </p>
     
-    
+</div>
+</div>
 <?php 
 }
 
