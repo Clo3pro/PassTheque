@@ -1,6 +1,5 @@
-
-/********************* mode mobile ******************************/
-
+/******************** mode tablette ***************************/
+@media screen and (min-width: 768px){
     body {
         height: 100%;
     }
@@ -15,32 +14,64 @@
         color: #000000;
     }
  
-#wrapper{
-    margin: 0% 5% 0% 5%;
-    background-color: #FFFFFF;
-}
-    .container{
-    margin: 20%;
-}
+ 
+ 
     #wrapper .flexPhotos{
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: row;
     }
 
-body{
-    background-color: #2C3E50;
+    #wrapper{
+        margin: 0% 5% 0% 5%;
+        background-color: #FFFFFF;
+    }
+        .container{
+        margin: 12% 20% 12% 20%;
+    }
+        #wrapper .flexPhotos{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    
+    body{
+        background-color: #2C3E50;
+    
+    }
+    #page.container{
+        padding-left: 2%;
+        padding-right: 2%;
+        background-color: #FFFFFF;
+    
+    }
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+#header-banner {
+    background: url(../images/banner.jpg);
+    background-size: cover;
 
 }
-#page.container{
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: #FFFFFF;
 
+.boxA,
+.boxB,
+.boxC{
+    margin: auto;
 }
+
+
 /*********************************************************************************/
 /*  Menu                                                                         */
 /*********************************************************************************/
+
+#menu {
+    position: absolute;
+    top: 4em;
+    right: 5px;
+}
+
 #menu ul {
     margin: 0;
     padding: 0;
@@ -103,11 +134,12 @@ body{
 
 
 ul.style3 {
-    margin: 0;
+    margin: auto;
     padding: 0;
     overflow: hidden;
     list-style: none;
     color: #000000
+
 }
 
 ul.style3 li {
@@ -126,7 +158,7 @@ ul.style3 a {
 }
 
 ul.style3 h3 {
-    padding: 1em 0em 2px 0em;
+    padding: 20% 30% 20% 30%;
     text-transform: uppercase;
     font-size: 1em;
     font-weight: 300;
@@ -185,24 +217,6 @@ ul.style4 .first {
     border-top: none;
 }
 
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
-
-#header-banner {
-    background: url(../images/banner.jpg);
-    background-size: cover;
-}
-
-.boxA,
-.boxB,
-.boxC{
-    margin: auto;
-}
-
-
-
-
 
 /*********************************************************************************/
 /* Bienvenue                                                                       */
@@ -217,7 +231,4 @@ ul.style4 .first {
     padding: 5em 0em 5em 0em;
 }
 
-
-
-
-
+}

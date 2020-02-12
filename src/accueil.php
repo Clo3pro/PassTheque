@@ -18,7 +18,9 @@ catch(Exception $e){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PassThèque</title>
    <!-- <link rel="stylesheet" type="text/css" href="css/default.css" media="all" />-->
-    <link rel="stylesheet" type="text/css" href="css/modification.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/modification.css" />
+    <link rel="stylesheet" type="text/css" href="css/tab.css" />
+    <link rel="stylesheet" type="text/css" href="css/pc.css"  />
 
 
 </head>

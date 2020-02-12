@@ -1,46 +1,62 @@
 
-/********************* mode mobile ******************************/
+******************** mode pc ******************************/
+
+@media screen and (min-width: 1024px){
 
     body {
-        height: 100%;
-    }
-    
-    body {
-        margin: 0px;
-        padding: 0px;
-        background: #2C3E50;
+        margin: 0;
+        padding: 0;
         font-family: 'Source Sans Pro', sans-serif;
-        font-size: 12pt;
-        font-weight: 300;
-        color: #000000;
+        font-size: 12px;
+        font-weight: 300px;
+        background-color: #2C3E50;
     }
  
-#wrapper{
-    margin: 0% 5% 0% 5%;
-    background-color: #FFFFFF;
-}
-    .container{
-    margin: 20%;
-}
+ 
+ 
     #wrapper .flexPhotos{
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: row;
+        max-width: 100%;
     }
 
-body{
-    background-color: #2C3E50;
+    #wrapper{
+        margin: 0% 5% 0% 5%;
+        background-color: #FFFFFF;
+    }
+        .container{
+        margin: 12% 20% 12% 20%;
+        }
+    
+    
+
+    #page.container{
+        padding-left: 2%;
+        padding-right: 2%;
+        background-color: #FFFFFF;
+    
+    }
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+#header-banner {
+    background: url(../images/banner.jpg);
+    background-size: cover;
 
 }
-#page.container{
-    padding-left: 2%;
-    padding-right: 2%;
-    background-color: #FFFFFF;
 
-}
 /*********************************************************************************/
 /*  Menu                                                                         */
 /*********************************************************************************/
+
+#menu {
+    position: absolute;
+    top: 4em;
+    right: 5px;
+}
+
 #menu ul {
     margin: 0;
     padding: 0;
@@ -96,6 +112,21 @@ body{
 #menu ul li a {
     margin: auto;
 }
+
+/*********************************************************************************/
+/* Bienvenue                                                                       */
+/*********************************************************************************/
+
+#Bienvenue-Bas {
+    background: #E0E0E0;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+#Bienvenue {
+    padding: 5em 0em 5em 0em;
+}
+
+
 
 /*********************************************************************************/
 /* Liste bas                                                                     */
@@ -185,39 +216,44 @@ ul.style4 .first {
     border-top: none;
 }
 
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
 
-#header-banner {
-    background: url(../images/banner.jpg);
-    background-size: cover;
-}
+
+
+/*********************************************************************************/
+/* 3-column                                                                      */
+/*********************************************************************************/
 
 .boxA,
 .boxB,
-.boxC{
-    margin: auto;
+.boxC {
+    width: 300px;
 }
 
+.boxA,
+.boxB {
+    float: left;
+    margin-right: 50px;
+}
 
-
-
+.boxC {
+    float: right;
+}
 
 /*********************************************************************************/
-/* Bienvenue                                                                       */
+/* 2-column                                                                      */
 /*********************************************************************************/
 
-#Bienvenue-Bas {
-    background: #E0E0E0;
-    border-top: 1px solid rgba(0, 0, 0, .1);
+.tbox1,
+.tbox2 {
+    width: 575px;
 }
 
-#Bienvenue {
-    padding: 5em 0em 5em 0em;
+.tbox1 {
+    float: left;
 }
 
+.tbox2 {
+    float: right;
+}
 
-
-
-
+}
