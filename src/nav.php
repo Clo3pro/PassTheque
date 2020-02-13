@@ -6,9 +6,9 @@
             <div id="menu">
                 <ul>
                     <li><a href="accueil.php">Accueil</a></li>
-                    <li><a href="Exploration.php">Explorer</a></li>
+                    <li><a href="exploration.php">Explorer</a></li>
                     <li><a href="#">Réservations</a></li>
-                    <li><a href="Ajouter.php">Ajouter</a>
+                    <li><a href="ajouter.php">Ajouter</a>
                     <li><a href="#">Mon compte</a>
                         <ul>
                             <li><a href="#">Mes réservations</a></li>
