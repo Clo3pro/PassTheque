@@ -1,3 +1,5 @@
+<?php include("connexion_db.php")?>
+
 <!DOCTYPE html>
 <html>
 
