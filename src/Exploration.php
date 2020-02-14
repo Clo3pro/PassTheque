@@ -71,9 +71,9 @@ $author_list=$query2->fetchAll();
             $imageDefaut = "images/image_defaut.jpg";
             
         if(file_exists($image)){
-            echo '<a id=link_details href ="./details.php/?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$image.'" alt="texte alternatif" /></a>';
+            echo '<a id=link_details href ="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$image.'" alt="texte alternatif" /></a>';
         }else{
-            echo '<a id=link_details href="./details.php/?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$imageDefaut.'" alt="texte alternatif" /></a>';
+            echo '<a id=link_details href="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$imageDefaut.'" alt="texte alternatif" /></a>';
         }
 
 
@@ -100,7 +100,7 @@ $author_list=$query2->fetchAll();
         <?php 
         }
 
-        $reponse->closeCursor(); // Termine le traitement de la requête
+        $query->closeCursor(); // Termine le traitement de la requête
 
         ?>
 
