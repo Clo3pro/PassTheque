@@ -260,25 +260,42 @@ height: auto ;
 }
 #admin{
     margin-top: 1%;
-    align-content: center;
-    align-items: center;
-    
+    text-align: center;
 }
 #titre_admin{
     text-align: center;
 }
 #tableau_admin{
-    
+    background-color: antiquewhite;
     text-align: center;
-    border: medium solid #E0E0E0;
-    margin: 5%;
+    border: medium solid #2C3E50;
+    margin: 5% 25% 5% 25%;
+    border-radius: 18px 18px 18px 18px;
+    
     
 }
 #ligne_table #case_table{
     text-align: center;
-    border: thin solid #E0E0E0;
+    border: thin solid #2C3E50;
     border-collapse: collapse;
     
+}
+/***** Supprimer*******/
+#modifier{
+    background-color: #2D15D9;
+}
+#supprimer{
+    background-color: #C20B26;
+}
+/**/
+/*Ajouter               */
+/**/
+
+#formulaire{
+    text-align: center;
+    background-color: antiquewhite;
+    margin: 3% 12% 3% 12%;
+
 }
 /******************** mode tablette ***************************/
 @media screen and (min-width: 768px){

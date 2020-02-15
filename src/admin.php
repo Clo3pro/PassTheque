@@ -35,8 +35,8 @@ $book_list = $query->fetchAll();
             <tr id= "ligne_table">
                 <td id="case_table"><?php echo $donnees['titre']?></td>
                 <td id="case_table"><?php echo $donnees['prenom']." ".$donnees['nom']?> </td>
-                <td id="case_table"><input type="button"  id=""name="modify" value="Modifier" method="GET" action="modifier.php?id=<?=$donnees['isn']?>"></input>
-                <input type="submit" name="delete" value="Supprimer" method="GET" onsubmit="return areYouSure()"></input>
+                <td id="case_table"><input type="button"  id="modifier" name="modify" value="Modifier" method="GET" action="modifier.php?id=<?=$donnees['isn']?>"></input>
+                <input type="button" id= "supprimer" name="delete" value="Supprimer" method="GET" onclick="areYouSure()"></input>
                 </td>
             </tr>
             
@@ -48,6 +48,7 @@ $book_list = $query->fetchAll();
 
         ?>
         </table>
+        <script src= "delete_check.js"></script>
         </section>
         <?php include "bas.php"?>
     </body>
