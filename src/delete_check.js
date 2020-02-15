@@ -1,11 +1,13 @@
 'use strict'
 function areYouSure(){
+    
     var result = confirm("Voulez-vous vraiment supprimer ce livre?");
     if(result ==true){
-        location.href = "supprimer.php";
+
+        document.location.href= "supprimer.php?id="+ variableRecuperee;
         
     }else{
-        location.href = "admin.php";
+        document.location.href = "admin.php";
         
     }
 }

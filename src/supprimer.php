@@ -8,6 +8,10 @@
     <title>Suppression - Livre</title>
 </head>
 <body>
-    
+
+<?php echo $_GET['id']?>
+
+
+
 </body>
 </html>

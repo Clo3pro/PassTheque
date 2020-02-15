@@ -280,6 +280,11 @@ height: auto ;
     border-collapse: collapse;
     
 }
+#case_table2{
+    text-align: center;
+    border: thin solid #2C3E50;
+    border-collapse: collapse;  
+}
 /***** Supprimer*******/
 #modifier{
     background-color: #2D15D9;
