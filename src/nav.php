@@ -7,7 +7,6 @@
                 <ul>
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="exploration.php">Explorer</a></li>
-                    <li><a href="#">Réservations</a></li>
                     <li><a href="ajouter_livre.php">Ajouter</a>
                     <li><a href="admin.php">Admin</a>
                         

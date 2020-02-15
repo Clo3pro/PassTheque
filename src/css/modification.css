@@ -256,6 +256,7 @@ height: auto ;
 #author_list{
     display: flex;
     flex-direction: column;
+    color: #E0E0E0;
     
 }
 #admin{
@@ -293,7 +294,7 @@ height: auto ;
     background-color: #C20B26;
 }
 /**/
-/*Ajouter               */
+/*Ajouter*/
 /**/
 
 #formulaire{
