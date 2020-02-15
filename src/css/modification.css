@@ -255,7 +255,7 @@ height: auto ;
 }
 #author_list{
 display: flex;
-flex-direction: column;
+color: #E0E0E0;
 
 }
 /******************** mode tablette ***************************/

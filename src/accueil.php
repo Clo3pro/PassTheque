@@ -28,7 +28,7 @@
             </div>
             
             <div class="flexPhotos">
-                <?php $donnees = $reponse = $bdd->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
+                <?php $donnees = $reponse = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
                 FROM Livre
                 JOIN Auteur ON Livre.isbn = Auteur.idLivre
                 JOIN Personne ON Auteur.idPersonne = Personne.id

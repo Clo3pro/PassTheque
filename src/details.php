@@ -26,8 +26,8 @@ $query2->execute(array($isbn));
 
 $donnees = $query->fetch();
 $auteurs = $query2->fetchAll();
-var_dump($donnees);
-var_dump($auteurs);
+//var_dump($donnees);
+//var_dump($auteurs);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@ var_dump($auteurs);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PassTheque</title>
-        <link rel="stylesheet" type="text/css" href="../css/modification.css"/>
+        <link rel="stylesheet" type="text/css" href="css/modification.css"/>
     </head>
     <body>
         <?php include("nav.php"); ?>
@@ -45,7 +45,7 @@ var_dump($auteurs);
             <div id="image_Livre">
             <?php
 
-                $image = "images/'.$isbn.'.jpg";  
+                $image = "images/".$donnees['isbn'].".jpg";  
 
                 $imageDefaut = "images/image_defaut.jpg";
 
@@ -83,7 +83,12 @@ var_dump($auteurs);
                 ?>
                 en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
                 <?php echo "Genre: " . HtmlSpecialChars($donnees['genre'])?><br/>
-                <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
+                <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?><br/>
+                <?php echo "Langue: ".HtmlSpecialCHars($donnees['langue'])?><br/>
+                <?php if($donnees['nbpages'] !=null){
+                    echo "nbpages: ".HtmlSpecialCHars($donnees['nbpages']);
+                }?><br/>
+
             </p>
             
             <?php 
