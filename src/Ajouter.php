@@ -129,7 +129,7 @@
                 </select>
 
             <p>Le nom du traducteur</p>
-                <select name="traducteur" id="traducteur">
+                <select name="traducteur" id="traducteur" value =''>
                     <?php foreach($traducteurliste AS $traducteur) : ?>
                         <option value ="<?=$traducteur['id'] ?>"><?=$traducteur['nom'] ?> <?=$traducteur['prenom'] ?></option>
                     <?php endforeach; ?>
