@@ -71,7 +71,7 @@
 
     <body>
         <?php include("nav.php"); ?>
-        <form method="post" action="ajouter.php" name="addBook" onsubmit=" return checkForm()">
+        <form method="post" action="ajouter_livre.php" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>Envie de nouveaux livres? ajoutez-les! nous les rendrons très vite disponibles.</p>
             <p>Le titre</p>
@@ -98,6 +98,7 @@
 
             <p>Le nom de l'illustrateur</p>
                 <select name="illustrateur" id="illustrateur">
+                    <option value=""></option>
                     <?php foreach($illustrateurliste AS $illustrateur) : ?>
                         <option value ="<?=$illustrateur['id'] ?>"><?=$illustrateur['nom'] ?> <?=$illustrateur['prenom'] ?></option>
                     <?php endforeach; ?>
@@ -105,6 +106,7 @@
 
             <p>Le nom de la preface</p>
                 <select name="preface" id="preface">
+                    <option value=""></option>
                     <?php foreach($prefaceliste AS $preface) : ?>
                         <option value ="<?=$preface['id'] ?>"><?=$preface['nom'] ?> <?=$preface['prenom'] ?></option>
                     <?php endforeach; ?>
@@ -130,15 +132,17 @@
 
             <p>Le nom du traducteur</p>
                 <select name="traducteur" id="traducteur" value =''>
+                    <option value=""></option>
                     <?php foreach($traducteurliste AS $traducteur) : ?>
                         <option value ="<?=$traducteur['id'] ?>"><?=$traducteur['nom'] ?> <?=$traducteur['prenom'] ?></option>
                     <?php endforeach; ?>
                 </select>
 
             <p>Le nombre de pages</p>
-                <input type=text name="nbPages" id="nbPages"></br></br>
+                <input type=text name="nbPages" id="nbPages"></br>
+                <p id='verif_nbPages'></p></br>
             <input type="submit" name="Valider" value="Valider">
-            <p id='verif_nbPages'></p>
+            
             
         </div>
         </form>
@@ -155,7 +159,7 @@
                         "'.$_POST['langue'].'",
                         "'.$_POST['nbPages'].'")
                 ');
-                $livreRequest->execute(array($_POST['isnb'],$_POST['titre'],$_POST['editeur'],$_POST['annee'],$_POST['genre'],$_POST['langue'],$_POST['nbPages'])) ;  
+                $livreRequest->execute(array($_POST['isbn'],$_POST['titre'],$_POST['editeur'],$_POST['annee'],$_POST['genre'],$_POST['langue'],$_POST['nbPages'])) ;  
             ?>
             
             <?php
@@ -165,7 +169,7 @@
                         "'.$_POST['isbn'].'",
                         "1")
                 ');
-                $auteurRequest->execute(array($_POST['auteur'],$_POST['isbn'],[1]));
+                $auteurRequest->execute(array($_POST['auteur'],$_POST['isbn'],1));
             ?>
 
             <?php

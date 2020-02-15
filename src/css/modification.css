@@ -258,6 +258,24 @@ height: auto ;
     flex-direction: column;
     
 }
+#admin{
+    margin-top: 1%;
+}
+#titre_admin{
+    text-align: center;
+}
+#tableau_admin{
+    margin-top: 1%;
+    text-align: center;
+    border: medium solid #E0E0E0;
+    width:50%
+}
+#ligne_table #case_table{
+    text-align: center;
+    border: thin solid #E0E0E0;
+    border-collapse: collapse;
+    width: 50%;
+}
 /******************** mode tablette ***************************/
 @media screen and (min-width: 768px){
     body {
