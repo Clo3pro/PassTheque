@@ -86,17 +86,6 @@
                     </li>
                 </ul>
             </div>
-            <div class="boxF">
-                <h2>Voir avec clopro<br />
-                    <span>Quoi mettre pour remplir</span></h2>
-                <ul class="style4">
-                    <li class="first">dd<a href="#"></a></li>
-                    <li><a href="#">dddd</a></li>
-                    <li><a href="#">Suss</a></li>
-                    <li><a href="#">Ur</a></li>
-                    <li><a href="#">dd</a></li>
-                </ul>
-            </div>
         </div>
     </div>
 <?php include "bas.php"; ?>
