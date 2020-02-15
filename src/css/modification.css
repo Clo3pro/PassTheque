@@ -270,13 +270,41 @@ height: auto ;
     margin: 3% 12% 3% 12%;
 
 }
+/************************/
+/*Admin             */
+/************************/
 
 
+#admin{
+    margin-top: 1%;
+    align-content: center;
+    align-items: center;
 
+}
+#titre_admin{
+    text-align: center;
+}
+#tableau_admin{
+    background-color: antiquewhite;
+ 
+    border: medium solid #2C3E50;
+    border-radius: 18px 18px 18px 18px;
+    max-width: 100em;
+    
 
+}
+#ligne_table #case_table{
+    text-align: center;
+    border: thin solid #2C3E50;
+    border-collapse: collapse;
 
-
-
+}
+#modifier{
+    background-color: #2D15D9;
+}
+#supprimer{
+    background-color: #C20B26;
+}
 
 
 
@@ -523,6 +551,14 @@ ul.style4 .first {
 #Bienvenue {
     padding: 5em 0em 5em 0em;
 }
+#tableau_admin{
+    background-color: antiquewhite;
+     margin-left: 12%;
+     margin-bottom: 4%;
+    border: medium solid #2C3E50;
+    border-radius: 18px 18px 18px 18px;
+    max-width: 100em;
+}
 
 
 
@@ -593,8 +629,9 @@ ul.style4 .first {
 
         .boxE, .boxD {
             float: left;
-            margin-left: 10%;
-            margin-right: 20px;
+            margin-left: 14%;
+            margin-right: 10%;
+            margin-bottom: 4%;
             max-width: 300px;
             height: 650px;
         }
@@ -783,4 +820,17 @@ ul.style4 .first {
 }
 
 }
+
+#tableau_admin{
+    background-color: antiquewhite;
+     margin-left: 34%;
+     margin-right: 28%;
+     margin-bottom: 4%;
+    border: medium solid #2C3E50;
+    border-radius: 18px 18px 18px 18px;
+    max-width: 100em;
+    
+
+}
+
 }

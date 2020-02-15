@@ -91,6 +91,7 @@ $author_list=$query2->fetchAll();
             en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
             <?php echo "Genre: " .HtmlSpecialChars($donnees['genre'])?><br/>
             <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
+            <input type='button' method='get' value='Modifier' action='admin.php'></input>
         
         </p>
             
