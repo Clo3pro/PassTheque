@@ -2,7 +2,7 @@
 <?php include("connexion_db.php");?>
 <?php $isbn = HtmlSpecialChars($_GET['isbn'])?>
 <?php $query = $pdo->prepare('
-SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre
+SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre,Livre.isbn,Livre.nbpages,Livre.annee,Langue.libelle AS langue
 FROM Livre
 JOIN Auteur ON Livre.isbn = Auteur.idLivre
 JOIN Personne ON Auteur.idPersonne = Personne.id
@@ -26,8 +26,7 @@ $query2->execute(array($isbn));
 
 $donnees = $query->fetch();
 $auteurs = $query2->fetchAll();
-//var_dump($donnees);
-//var_dump($auteurs);
+
 ?>
 
 <!DOCTYPE html>
@@ -81,9 +80,17 @@ $auteurs = $query2->fetchAll();
 
                    
                 ?>
-                en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
+                Publié en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
                 <?php echo "Genre: " . HtmlSpecialChars($donnees['genre'])?><br/>
-                <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
+                <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?><br/>
+                <?php if(isset($donnees['nbpages'])){
+                    echo "Nombre de Pages:".HtmlSpecialChars($donnees['nbpages']);
+                }?><br/>
+                <?php echo "Identifiant:".HtmlSpecialChars($donnees['isbn'])?><br/>
+                <?php echo "Disponible en ".HtmlSpecialChars($donnees['langue'])?>
+
+
+                
             </p>
             
             <?php 

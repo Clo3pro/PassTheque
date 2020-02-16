@@ -48,7 +48,7 @@
 
                 $image = "images/"."$donnees[isbn]".".jpg";
 
-                print '<img src="'.$image.'" alt="UH-OH"
+                print '<img class="image" src="'.$image.'" alt="UH-OH"
                 
                     < width="200" height="350"/>';?></div>
               

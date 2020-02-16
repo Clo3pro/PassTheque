@@ -42,9 +42,8 @@ $book_list = $query->fetchAll();
                         <td id="case_table"><?php echo $donnees['titre']?></td>
                         <td id="case_table2" value ="<?=$donnees['isbn']?>"><?php echo $donnees['isbn']?></td>
                         <td id="case_table"><?php echo $donnees['prenom']." ".$donnees['nom']?> </td>
-                        <td id="case_table"><input type="button"  id="modifier" name="modify" value="Modifier" method="GET" onclick="'modifier_livre.php?id='<?=$donnees['isbn']?>"></input>
-                        <a id="link_details" href= "supprimer.php?id=<?=HtmlSpecialChars($donnees['isbn'])?>" ><input type="button" id= "supprimer" name="delete" value="Supprimer"  onclick= "areYouSure()"></input></a>
-                         <input type="hidden" name="id" value="<?php echo $donnees["isbn"]?>"></input>
+                        <td id="case_table"><a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  id="modifier" name="modify" value="Modifier" ></input></a>
+                        <a id="link_details"  href= "supprimer.php?id=<?=HtmlSpecialChars($donnees['isbn'])?>" onclick= "return areYouSure()" ><input type="button" id= "supprimer" name="delete" value="Supprimer" ></input></a>
                         </td>
                         
                     </tr>

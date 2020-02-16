@@ -1,16 +1,16 @@
+  <?php include('connexion_db.php')?>
   <?php 
-            /* if(isset($_GET['isbn'])){
+            if(isset($_GET['id'])){
                 $livreRequestSupp = $pdo->prepare('
                 DELETE FROM Livre
-                WHERE( "'.$_GET['isbn'].'"     
-                )');
+                WHERE  isbn = ?   
+                ');
                 $auteurRequestSupp = $pdo->prepare('
                 DELETE FROM Auteur
-                WHERE( "'.$_GET['isbn'].'"     
-                )');
-                $livreRequestSupp->execute(array($_GET['isnb'])) ;  
-                $auteurRequestSupp->execute(array($_GET['isnb'])) ;
-            }*/
+                WHERE idLivre = ?');
+                $livreRequestSupp->execute(array($_GET['id'])) ;  
+                $auteurRequestSupp->execute(array($_GET['id'])) ;
+            }
 ?>   
 
 <!DOCTYPE html>
@@ -23,7 +23,6 @@
 </head>
 <body>
     <?php include "nav.php"?>
-    <?php echo $_GET['id']?>
     <a href="admin.php"><h1> Livre supprimé ! cliquez pour revenir sur la page admin.</h1></a>
 </body>
 </html>
