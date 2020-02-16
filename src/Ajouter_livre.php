@@ -10,7 +10,7 @@
     $idlangueliste = $idlangueRequest->fetchAll();
 
     $auteursearch ='
-    SELECT DISTINCT p.nom, p.prenom, r.id
+    SELECT DISTINCT p.nom, p.prenom, p.id
     FROM personne p
     JOIN auteur a ON p.id = a.idPersonne
     JOIN role r ON a.idRole = r.id
@@ -82,8 +82,9 @@
                 <input type=text name='isbn' id="isbn">
                 <p id='verif_isbn'></p>
 
-            <p>Le nom de l'auteur</p>
-                <select name="auteur" id="auteur">
+            <p>Le nom de l'écrivain</p>
+                <select name="ecrivain" id="ecrivain">
+                <option value=""></option>
                     <?php foreach($auteurliste AS $auteur) : ?>
                         <option value ="<?=$auteur['id'] ?>"><?=$auteur['nom'] ?> <?=$auteur['prenom'] ?></option>
                     <?php endforeach; ?>
@@ -165,11 +166,11 @@
             <?php
                 $auteurRequest = $pdo->prepare('
                 INSERT INTO Auteur
-                VALUES( "'.$_POST['auteur'].'",
+                VALUES( "'.$_POST['ecrivain'].'",
                         "'.$_POST['isbn'].'",
                         "1")
                 ');
-                $auteurRequest->execute(array($_POST['auteur'],$_POST['isbn'],1));
+                $auteurRequest->execute(array($_POST['ecrivain'],$_POST['isbn'],1));
             ?>
 
             <?php
