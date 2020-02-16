@@ -10,6 +10,7 @@ $query = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.an
 $book_list = $query->fetchAll();
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +23,7 @@ $book_list = $query->fetchAll();
         <?php include "nav.php"?>
         <section id="admin">
             <h1 id='titre_admin'>Tableau d'actions</h1>
-            <form method="GET">
+            
                 <table id='tableau_admin'>
                     <tr id= "ligne_table">
                         <th id="case_table">Titre</th>
@@ -31,22 +32,26 @@ $book_list = $query->fetchAll();
                         <th id="case_table">Options</th>
                     </tr>
                     <?php
-
+                    
                     foreach($book_list as $donnees){
+                    
+                    
                     ?>
+                   
                     <tr id= "ligne_table">
                         <td id="case_table"><?php echo $donnees['titre']?></td>
                         <td id="case_table2" value ="<?=$donnees['isbn']?>"><?php echo $donnees['isbn']?></td>
                         <td id="case_table"><?php echo $donnees['prenom']." ".$donnees['nom']?> </td>
-                        <td id="case_table"><input type="button"  id="modifier" name="modify" value="Modifier" method="GET" action="modifier_livre.php?id=<?=$donnees['isbn']?>"></input>
-                        <input type="button" id= "supprimer" name="delete" value="Supprimer"  onclick= "areYouSure()"></input>
-                        <input type="hidden" name="id" value="<?php echo $donnees["isbn"]?>"></input>
-                    <script> var variableRecuperee = <?php echo json_encode($donnees['isbn']); ?>;</script>
+                        <td id="case_table"><input type="button"  id="modifier" name="modify" value="Modifier" method="GET" onclick="'modifier_livre.php?id='<?=$donnees['isbn']?>"></input>
+                        <a id="link_details" href= "supprimer.php?id=<?=HtmlSpecialChars($donnees['isbn'])?>" ><input type="button" id= "supprimer" name="delete" value="Supprimer"  onclick= "areYouSure()"></input></a>
+                         <input type="hidden" name="id" value="<?php echo $donnees["isbn"]?>"></input>
                         </td>
+                        
                     </tr>
                     
-                
+                      
                 <?php 
+              
                 }
 
                 $query->closeCursor(); // Termine le traitement de la requête
@@ -54,7 +59,7 @@ $book_list = $query->fetchAll();
                 ?>
                 </table>
             <script src= "delete_check.js"></script>
-            </form>
+           
             
         </section>
         <?php include "bas.php"?>

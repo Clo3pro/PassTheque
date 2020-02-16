@@ -75,7 +75,7 @@
         <div id="formulaire">
             <p>Envie de nouveaux livres? ajoutez-les! nous les rendrons très vite disponibles.</p>
             <p>Le titre</p>
-                <input type=text name="titre" id="titre">
+                <input type=text name="titre" id="titre" textarea cols="100" rows="90">
                 <p id='verif_titre'></p>
 
             <p>L'identifiant du livre (isbn)</p>
