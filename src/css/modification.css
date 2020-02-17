@@ -250,7 +250,7 @@ text-align: center;
 color: #2C3E50;
 }
 img{
-max-width: 300px;
+max-width: 250px;
 height: auto ;
 }
 #author_list{
@@ -318,6 +318,7 @@ background-color: #C20B26;
 .image:hover{
     transform:scale(1.15);
     transition: ease-in-out;
+    
 }
 
 

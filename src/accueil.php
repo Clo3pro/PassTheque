@@ -47,10 +47,14 @@
                 <?php
 
                 $image = "images/"."$donnees[isbn]".".jpg";
+                $imageDefaut = "images/image_defaut.jpg";
+                if(file_exists($image)){
+                    echo '<a id=link_details href ="details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img  class="image" src="'.$image.'" alt="uh-oh" /></a>';
+                }else{
+                    echo '<a id=link_details href="details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img class="image" src="'.$imageDefaut.'" alt="uh-oh" /></a>';
+                }
 
-                print '<img class="image" src="'.$image.'" alt="UH-OH"
-                
-                    < width="200" height="350"/>';?></div>
+               ?></div>
               
             <?php   }?>
             

@@ -295,5 +295,6 @@ $thisidlangueRequest = $pdo->prepare('
                 }
             }
             ?>
+            <?php include "bas.php"?>
     </body>
 </html>

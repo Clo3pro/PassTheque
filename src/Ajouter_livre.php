@@ -119,7 +119,6 @@
                         <option value ="<?=$genre['id'] ?>"><?=$genre['libelle']?></option>
                     <?php endforeach; ?>
                 </select>
-            
             <p>L'année de publication</p>
                 <input type=text name="annee" id="annee">
                 <p id='verif_annee'></p>
