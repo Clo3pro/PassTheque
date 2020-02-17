@@ -27,6 +27,7 @@
             
             </div>
             
+            
             <div class="flexPhotos">
                 <?php $donnees = $reponse = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
                 FROM Livre
