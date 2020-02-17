@@ -15,15 +15,8 @@ $author_list = $query3->fetchAll();
         <fieldset>
         <legend>Sélection par Auteur</legend>
            <?php foreach($author_list as $author){?>
-<<<<<<< HEAD
-                <input type="checkbox" name="author_choice" value="<?= $author['id']?>">
-                <label for="author_choice"><?= $author['prenom'].' '.$author['nom']?><label>
-                  
-                  
-=======
                     <label for="author_choice"><?= $author['prenom'].' '.$author['nom']?><label>
                   <input type="checkbox" name="author_choice" value="<?= $author['id']?>">
->>>>>>> nouvelle_pt
                   
            <?php }?>
            <input type="submit" value="valider"></input>
