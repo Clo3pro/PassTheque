@@ -71,9 +71,15 @@ $author_list=$query2->fetchAll();
             $imageDefaut = "images/image_defaut.jpg";
             
         if(file_exists($image)){
+<<<<<<< HEAD
             echo '<a id=link_details href ="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$image.'" alt="texte alternatif" /></a>';
         }else{
             echo '<a id=link_details href="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img src="'.$imageDefaut.'" alt="texte alternatif" /></a>';
+=======
+            echo '<a id=link_details href ="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img  class="image" src="'.$image.'" alt="texte alternatif" /></a>';
+        }else{
+            echo '<a id=link_details href="./details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img class="image" src="'.$imageDefaut.'" alt="texte alternatif" /></a>';
+>>>>>>> nouvelle_pt
         }
 
 
@@ -91,6 +97,7 @@ $author_list=$query2->fetchAll();
             en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
             <?php echo "Genre: " .HtmlSpecialChars($donnees['genre'])?><br/>
             <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
+            <input type='button' method='get' value='Modifier' onclick= "location.href='admin.php'"></input>
         
         </p>
             
@@ -100,7 +107,7 @@ $author_list=$query2->fetchAll();
         <?php 
         }
 
-        $reponse->closeCursor(); // Termine le traitement de la requête
+        $query->closeCursor(); // Termine le traitement de la requête
 
         ?>
 

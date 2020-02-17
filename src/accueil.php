@@ -27,6 +27,7 @@
             
             </div>
             
+            
             <div class="flexPhotos">
                 <?php $donnees = $reponse = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
                 FROM Livre
@@ -47,10 +48,14 @@
                 <?php
 
                 $image = "images/"."$donnees[isbn]".".jpg";
+                $imageDefaut = "images/image_defaut.jpg";
+                if(file_exists($image)){
+                    echo '<a id=link_details href ="details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img  class="image" src="'.$image.'" alt="uh-oh" /></a>';
+                }else{
+                    echo '<a id=link_details href="details.php?isbn='.HtmlSpecialChars($donnees['isbn']).'"><img class="image" src="'.$imageDefaut.'" alt="uh-oh" /></a>';
+                }
 
-                print '<img src="'.$image.'" alt="UH-OH"
-                
-                    < width="200" height="350"/>';?></div>
+               ?></div>
               
             <?php   }?>
             
@@ -71,10 +76,10 @@
             </div>
             <div class="boxD">
                 <h2>A venir<br />
-                    <span>N'hésitez pas a nous en suggérer de nouveaux  via  l'onglet <strong><a href="#"  title="">Ajouter</a></strong></span></h2>
+                    <span>N'hésitez pas a nous en suggérer de nouveaux  via  l'onglet <strong><a href="ajouter_livre.php"  title="">Ajouter</a></strong></span></h2>
                 <ul class="style3">
                     <li class="first">
-                        <p class="date"><a href="#">20<b>FEV</b></a></p>
+                        <p class="date">20<b>FEV</b></p>
                         <h3>The Witcher</h3>
                         <p>Beaucoup demandé suite a la série Netflix.</p>
                     </li>
@@ -84,17 +89,6 @@
                         <p>Nous vous proposerons bientôt un tout nouveau genre.
                             Pour les amoureux de la culture Nippone.</p>
                     </li>
-                </ul>
-            </div>
-            <div class="boxF">
-                <h2>Voir avec clopro<br />
-                    <span>Quoi mettre pour remplir</span></h2>
-                <ul class="style4">
-                    <li class="first">dd<a href="#"></a></li>
-                    <li><a href="#">dddd</a></li>
-                    <li><a href="#">Suss</a></li>
-                    <li><a href="#">Ur</a></li>
-                    <li><a href="#">dd</a></li>
                 </ul>
             </div>
         </div>

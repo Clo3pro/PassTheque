@@ -1,8 +1,8 @@
 
 <?php include("connexion_db.php");?>
-<?php $isbn = $_GET['isbn']?>
+<?php $isbn = HtmlSpecialChars($_GET['isbn'])?>
 <?php $query = $pdo->prepare('
-SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre
+SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre,Livre.isbn,Livre.nbpages,Livre.annee,Langue.libelle AS langue
 FROM Livre
 JOIN Auteur ON Livre.isbn = Auteur.idLivre
 JOIN Personne ON Auteur.idPersonne = Personne.id
@@ -26,8 +26,12 @@ $query2->execute(array($isbn));
 
 $donnees = $query->fetch();
 $auteurs = $query2->fetchAll();
+<<<<<<< HEAD
 //var_dump($donnees);
 //var_dump($auteurs);
+=======
+
+>>>>>>> nouvelle_pt
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +49,11 @@ $auteurs = $query2->fetchAll();
             <div id="image_Livre">
             <?php
 
+<<<<<<< HEAD
                 $image = "images/".$donnees['isbn'].".jpg";  
+=======
+                $image = "images/" . $donnees['isbn'] . ".jpg";  
+>>>>>>> nouvelle_pt
 
                 $imageDefaut = "images/image_defaut.jpg";
 
@@ -81,21 +89,32 @@ $auteurs = $query2->fetchAll();
 
                    
                 ?>
-                en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
+                Publié en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
                 <?php echo "Genre: " . HtmlSpecialChars($donnees['genre'])?><br/>
                 <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?><br/>
+<<<<<<< HEAD
                 <?php echo "Langue: ".HtmlSpecialCHars($donnees['langue'])?><br/>
                 <?php if($donnees['nbpages'] !=null){
                     echo "nbpages: ".HtmlSpecialCHars($donnees['nbpages']);
                 }?><br/>
 
+=======
+                <?php if(isset($donnees['nbpages'])){
+                    echo "Nombre de Pages:".HtmlSpecialChars($donnees['nbpages']);
+                }?><br/>
+                <?php echo "Identifiant:".HtmlSpecialChars($donnees['isbn'])?><br/>
+                <?php echo "Disponible en ".HtmlSpecialChars($donnees['langue'])?>
+
+
+                
+>>>>>>> nouvelle_pt
             </p>
             
             <?php 
 
 
             $query->closeCursor(); // Termine le traitement de la requête
-
+            $query2->closeCursor();
             ?>
             </div>  
         </div>
