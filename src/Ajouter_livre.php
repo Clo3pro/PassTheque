@@ -58,7 +58,12 @@
     $genreliste = $genresearch->fetchAll();
 
 ?>
-
+    <div>
+    <a id="link_details"  href= "ajout_editeur.php"><input type="button"  name="add_edit" value="Ajouter un Editeur" ></input></a>
+    <a id="link_details"  href= "ajout_personne.php"><input type="button"  name="add_per" value="Ajouter une Personne" ></input></a>
+    <a id="link_details"  href= "ajout_langue.php"><input type="button"  name="add_lan" value="Ajouter une Langue" ></input></a>
+    <a id="link_details"  href= "ajout_genre.php"><input type="button"  name="add_gen" value="Ajouter un Genre" ></input></a>
+    </div>
         <form method="post" action="ajouter_livre.php" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>Envie de nouveaux livres? ajoutez-les! nous les rendrons très vite disponibles.</p>

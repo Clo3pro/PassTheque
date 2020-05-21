@@ -128,6 +128,8 @@ $thisidlangueRequest = $pdo->prepare('
     $genresearch = $pdo->query($genresearch);
     $genreliste = $genresearch->fetchAll();
 }
+
+var_dump($thisauteur);
 ?>
 
 
@@ -146,9 +148,6 @@ $thisidlangueRequest = $pdo->prepare('
             <p>Le nom de l'auteur</p>
                 <select name="auteur" id="auteur">
                     <option value="<?=$thisauteur['id'] ?>"><?php $thisauteur['nom']." ".$thisauteur['prenom']?></option>
-                    <?php foreach($auteurliste AS $auteur) : ?>
-                        <option value ="<?=$auteur['id'] ?>"><?=$auteur['nom'] ?> <?=$auteur['prenom'] ?></option>
-                        <?php endforeach; ?>
                     </select>
                 
             <p>Le nom de l'éditeur</p>

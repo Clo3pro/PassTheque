@@ -1,5 +1,9 @@
-<?php  include("connexion_db.php")?>
-
+<?php  
+session_start();
+include("connexion_db.php");
+if(isset($_GET["empty"]) && $_GET["empty"]=="true"){
+    $_SESSION['panier']= array();
+}?>
 <!DOCTYPE html>
 <html>
 
@@ -16,4 +20,23 @@
 
     <body>
 
-<?php include "nav.php"; ?>
+    <div id="header-banner">
+        <div id="header">
+            <div id="logo">
+                <div classe="imglogo"><img src="images/logo3.PNG" width="200" height="200" alt="" /></div>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="accueil.php">Accueil</a></li>
+                    <li><a href="exploration.php">Explorer</a></li>
+                    <li><a href="ajouter_livre.php">Ajouter</a></li>
+                    <li><a href="admin.php">Admin</a></li>
+                    <li><a href='connexion.php'>Connexion</a></li>
+                    <li><a href='deconnexion.php'>Déconnexion</a></li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+

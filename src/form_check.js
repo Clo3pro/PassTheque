@@ -19,7 +19,7 @@ function checkForm(){
     }else{
         document.getElementById('titre').style.borderColor = "";
     }
-    if(c=="" ||( c<1500 && c>2020)){
+    if(c=="" ||( c<1500 || c>2020)){
         document.getElementById('annee').style.borderColor = "red";
         document.getElementById('verif_annee').innerHTML ="Vous devez renseigner une année!";
         nbErreurs++;
