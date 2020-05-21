@@ -327,7 +327,9 @@ background-color: #C20B26;
 }
 
 
-
+.aside{
+    align-items: flex-end;
+}
 
 
 /******************** mode tablette ***************************/
