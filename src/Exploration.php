@@ -1,7 +1,9 @@
 
-<?php include("connexion_db.php");?>
+<?php include("header.php");?>
 
-<?php if(isset($_GET['author_choice'])){
+<?php
+// requête qui affiche la liste des livres d'un auteur séléctionné au préalable
+if(isset($_GET['author_choice'])){
     $query = $pdo->prepare('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn,Editeur.libelle AS editeur,Genre.libelle AS genre
     FROM Livre
     JOIN Auteur ON Livre.isbn = Auteur.idLivre
@@ -15,6 +17,7 @@
     $book_list=$query->fetchAll();
 
 }else{
+// requête qui affiche la liste de tous les livres
     $query = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn,Editeur.libelle AS editeur,Genre.libelle AS genre
     FROM Livre
     JOIN Auteur ON Livre.isbn = Auteur.idLivre
@@ -40,25 +43,13 @@ $author_list=$query2->fetchAll();
 ?>
 
 
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>PassThèque - Explorer</title>
-        <link href="css/modification.css" rel="stylesheet" type="text/css" media="all" />
-
-
-    </head>
-    
-    <body>
-        <?php include("nav.php"); ?>
             
         <div id="author_list">
         <?php include "author_list.php";?>
         </div>
         <?php
-
+        // affichage de l'image correspondant au livre
         foreach($book_list as $donnees){
         ?>
        
@@ -80,6 +71,7 @@ $author_list=$query2->fetchAll();
         ?>
         </div>
         <div id = "text_Livre">
+        <!-- affichage de la liste des livres -->
             <p id="affich_Liv"> <?php 
             echo "Titre: ".
             HtmlSpecialChars($donnees['titre']); ?><br />
@@ -91,8 +83,7 @@ $author_list=$query2->fetchAll();
             en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
             <?php echo "Genre: " .HtmlSpecialChars($donnees['genre'])?><br/>
             <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
-            <input type='button' method='get' value='Modifier' onclick= "location.href='admin.php'"></input>
-        
+            <a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  name="modify" value="Modifier" ></input></a>
         </p>
             
         </div>
@@ -107,7 +98,3 @@ $author_list=$query2->fetchAll();
 
         <?php include("bas.php");?>
 
-</body>
-    
-    
-</html>

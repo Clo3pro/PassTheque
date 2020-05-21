@@ -1,8 +1,8 @@
-<?php include("connexion_db.php")?>
+<?php include("header.php")?>
 
 <?php
 
-
+// ensemble des requêtes qui permettent de récupérer toutes les informations que nous pouvons séléctionner pour ajouter un livre
     $idlangueRequest = '
     SELECT *
     FROM LANGUE';
@@ -58,19 +58,7 @@
     $genreliste = $genresearch->fetchAll();
 
 ?>
-<html>
 
-    <head>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>PassThèque - Ajouter</title>
-        <link href="css/modification.css" rel="stylesheet" type="text/css"/>
-
-
-    </head>
-
-    <body>
-        <?php include("nav.php"); ?>
         <form method="post" action="ajouter_livre.php" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>Envie de nouveaux livres? ajoutez-les! nous les rendrons très vite disponibles.</p>
@@ -148,6 +136,7 @@
         </form>
         <script src='form_check.js'></script>
             <?php
+            // requête qui permet d'ajouter le livre à la  base de données
             if(isset($_POST['isbn'],$_POST['titre'],$_POST['editeur'],$_POST['annee'],$_POST['genre'],$_POST['langue'],$_POST['nbPages'])){
                 $livreRequest = $pdo->prepare('
                 INSERT INTO Livre
@@ -163,6 +152,7 @@
             ?>
             
             <?php
+            // requête qui ajoute un écrivain dans la liste d'auteurs
                 $auteurRequest = $pdo->prepare('
                 INSERT INTO Auteur
                 VALUES( "'.$_POST['ecrivain'].'",
@@ -173,6 +163,7 @@
             ?>
 
             <?php
+            //requête qui ajoute un illustrateur dans la liste d'auteurs
                 if ($illustrateur != NULL){
                     $illustrateurRequest = $pdo->prepare('
                     INSERT INTO Auteur
@@ -187,6 +178,7 @@
             ?>
 
             <?php
+            //requête qui ajoute un traducteur dans la liste d'auteurs
                 if ($traducteur != NULL){
                     $traducteurRequest = $pdo->prepare('
                     INSERT INTO Auteur
@@ -201,6 +193,7 @@
             ?>
 
             <?php
+            // requête qui ajoute un auteur de préface dans la liste d'auteurs
                 if ($preface != NULL){
                     $prefaceRequest = $pdo->prepare('
                     INSERT INTO Auteur
@@ -215,5 +208,4 @@
                 }
             }
             ?>
-    </body>
-</html>
+<?php include('bas.php')?>

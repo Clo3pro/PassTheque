@@ -1,5 +1,6 @@
-<?php include("connexion_db.php")?>
+<?php include("header.php")?>
 <?php 
+// requêtes qui récupère toutes les informations possibles sur les livres et auteurs
 if(isset($_GET['for'])){
 $former = $_GET['for'];
 
@@ -130,19 +131,7 @@ $thisidlangueRequest = $pdo->prepare('
 ?>
 
 
-<html>
 
-    <head>
-
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>PassThèque - Modifier</title>
-        <link href="css/modification.css" rel="stylesheet" type="text/css"/>
-
-
-    </head>
-
-    <body>
-        <?php include("nav.php"); ?>
         <form method="post" action="modifier_livre.php" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>uh-oh. Vous avez vu une erreur? modifiez les informations du livre!</p>
@@ -223,6 +212,7 @@ $thisidlangueRequest = $pdo->prepare('
         <script src='form_check.js'></script>
 
         <?php
+        // requêtes de modification de la bdd 
             if(isset($_POST['isbn'],$_POST['titre'],$_POST['editeur'],$_POST['annee'],$_POST['genre'],$_POST['langue'],$_POST['nbPages'])){
                 $livreRequest = $pdo->prepare('
                 UPDATE Livre
@@ -296,5 +286,4 @@ $thisidlangueRequest = $pdo->prepare('
             }
             ?>
             <?php include "bas.php"?>
-    </body>
-</html>
+ 

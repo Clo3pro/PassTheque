@@ -42,6 +42,13 @@ background-color: #FFFFFF;
 .title{
 text-align: center;
 }
+#grille_auteur{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
 /*********************************************************************************/
 /*  Menu                                                                         */
 /*********************************************************************************/
@@ -251,7 +258,7 @@ text-align: center;
 color: #2C3E50;
 }
 img{
- max-width: 400px; 
+ max-width: 300px; 
 height: auto ;
 }
 #author_list{
@@ -373,7 +380,7 @@ body{
 }
 
 img{
-    max-width: 400px;
+    max-width: 300px;
     height: auto ;
     }
 /*********************************************************************************/

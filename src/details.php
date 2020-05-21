@@ -1,7 +1,9 @@
 
-<?php include("connexion_db.php");?>
+<?php include("header.php");?>
 <?php $isbn = HtmlSpecialChars($_GET['isbn'])?>
-<?php $query = $pdo->prepare('
+<?php 
+//requête qui récupère toutes les informations sur un livre spécifique dont on a récupérer l'isbn par l'url
+$query = $pdo->prepare('
 SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre,Livre.isbn,Livre.nbpages,Livre.annee,Langue.libelle AS langue
 FROM Livre
 JOIN Auteur ON Livre.isbn = Auteur.idLivre
@@ -13,6 +15,7 @@ JOIN Langue ON Livre.langue = Langue.id
 WHERE Livre.isbn=?
 ;');?>
 <?php
+//requête qui permet de récupérer les informations sur l'auteur du livre
 $query2 = $pdo->prepare('
 SELECT Personne.nom,Personne.prenom,Auteur.idRole AS "role"
 FROM Personne
@@ -29,16 +32,7 @@ $auteurs = $query2->fetchAll();
 
 ?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>PassTheque</title>
-        <link rel="stylesheet" type="text/css" href="css/modification.css"/>
-    </head>
-    <body>
-        <?php include("nav.php"); ?>
+<!-- affichage de l'image du livre grâce à l'isbn récupéré -->
             
         <div id="bloc_Livre">
             <div id="image_Livre">
@@ -58,6 +52,7 @@ $auteurs = $query2->fetchAll();
             ?>
             </div>
             <div id = "text_Livre">
+            <!-- affichage des détails du livre -->
             <p id="affich_Liv"> <?php 
                 echo "Titre: ".
                 HtmlSpecialChars($donnees['titre']); ?><br/>
@@ -87,8 +82,9 @@ $auteurs = $query2->fetchAll();
                     echo "Nombre de Pages:".HtmlSpecialChars($donnees['nbpages']);
                 }?><br/>
                 <?php echo "Identifiant:".HtmlSpecialChars($donnees['isbn'])?><br/>
-                <?php echo "Disponible en ".HtmlSpecialChars($donnees['langue'])?>
+                <?php echo "Disponible en ".HtmlSpecialChars($donnees['langue'])?><br/>
 
+                <a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  name="modify" value="Modifier" ></input></a>
 
                 
             </p>
@@ -102,6 +98,5 @@ $auteurs = $query2->fetchAll();
             </div>  
         </div>
         <?php include("bas.php");?>
-    </body>
-</html>
+
 

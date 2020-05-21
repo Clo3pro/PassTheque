@@ -1,5 +1,6 @@
-  <?php include('connexion_db.php')?>
+  <?php include('header.php')?>
   <?php 
+        //   requêtes de suppression d'un livre et de ses auteurs à partir de l'isbn récupéré dans l'url
             if(isset($_GET['id'])){
                 $livreRequestSupp = $pdo->prepare('
                 DELETE FROM Livre
@@ -13,16 +14,6 @@
             }
 ?>   
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/modification.css" rel="stylesheet" type="text/css"/>
-    <title>Document</title>
-</head>
-<body>
-    <?php include "nav.php"?>
+
     <a href="admin.php"><h1> Livre supprimé ! cliquez pour revenir sur la page admin.</h1></a>
-</body>
-</html>
+<?php include('bas.php');?>

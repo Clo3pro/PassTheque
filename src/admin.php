@@ -1,5 +1,6 @@
-<?php include("connexion_db.php");?>
+<?php include("header.php");?>
 <?php
+// requête qui permet d'afficher la liste des livres avec quelques détails dans un tableau admin
 $query = $pdo->query('SELECT Personne.nom, Personne.prenom, Livre.titre,Livre.annee,Livre.isbn
     FROM Livre
     JOIN Auteur ON Livre.isbn = Auteur.idLivre
@@ -11,16 +12,7 @@ $book_list = $query->fetchAll();
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/modification.css" rel="stylesheet" type="text/css"/>
-        <title>PassThèque - Admin</title>
-    </head>
-    <body>
-        <?php include "nav.php"?>
+
         <section id="admin">
             <h1 id='titre_admin'>Tableau d'actions</h1>
             
@@ -32,7 +24,7 @@ $book_list = $query->fetchAll();
                         <th id="case_table">Options</th>
                     </tr>
                     <?php
-                    
+                    // boucle qui permet l'affichage de la liste des livres récupérés
                     foreach($book_list as $donnees){
                     
                     
@@ -57,6 +49,7 @@ $book_list = $query->fetchAll();
 
                 ?>
                 </table>
+                <!-- vérifie si l'utilisateur veut vraiment supprimer le livre de la bdd -->
             <script src= "delete_check.js"></script>
            
             

@@ -6,3 +6,6 @@
             <p>Chez <strong>PassThèque</strong>, vous trouverez des livres de tous types auxquels vous pourrez accéder à travers divers abonnements que nous vous proposons. </p>
         </div>
     </div>
+    </body>
+
+</html>
