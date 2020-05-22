@@ -279,7 +279,14 @@ color: #E0E0E0;
 
 }
 
-
+.grid {
+    display: grid;
+    margin:2em;
+    grid-gap: 1rem;
+    grid-template-columns: 32.5% 32.5% 32.5%;
+    grid-template-rows: auto;
+    background-color: antiquewhite;
+  }
 /************************/
 /*Ajouter               */
 /************************/

@@ -19,8 +19,9 @@
 ?>
 <article class="grid">
     <?php 
+    var_dump($_SESSION['panier']);
         foreach ($_SESSION["panier"] as $key =>$value){
-            // Requete de récupération du produit numéro $key (idProduit)
+            // Requete de récupération du livre numéro $key (isbn)
             $query = $pdo ->prepare('
                         SELECT titre
                         FROM Livre
