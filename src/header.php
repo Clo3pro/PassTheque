@@ -41,6 +41,7 @@ if(isset($_SESSION['email']) && (isset($_GET["empty"]) && $_GET["empty"]=="true"
                     echo'<ul>
                         <li><a href="#">Mes réservation</a></li>
                         <li><a href="panier.php">Panier</a></li>
+                        <li><a href="?empty=true">Vider le panier</a></li>
                          </ul>
                          </li>';
                     echo "<li><a href='deconnexion.php'>Déconnexion</a></li>";
