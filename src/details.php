@@ -54,37 +54,38 @@ $auteurs = $query2->fetchAll();
             <div id = "text_Livre">
             <!-- affichage des détails du livre -->
             <p id="affich_Liv"> <?php 
-                echo "<p id='titre'> Titre: ".
-                HtmlSpecialChars($donnees['titre'])."</p>"; ?><br/>
+                echo "<p> <span class='tdetail'> Titre </span>:".
+                HtmlSpecialChars($donnees['titre'])."</p>"  ; ?>
 
                 <?php
                 foreach($auteurs as $auteur){
                     if($auteur['role']==1){
-                        echo "Ecrivain: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>";
+                        echo "<p> <span class='tdetail'> Ecrivain </span>: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>" ."</p>" ;
                     }
                     if($auteur['role']==2){
-                    echo "Illustrateur: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>"; 
+                    echo "<p> <span class='tdetail'> Illustrateur </span>: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>" ."</p>"; 
                     }
                     if($auteur['role']==3){
-                        echo "Traducteur: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>"; 
+                        echo "<p> <span class='tdetail'> Traducteur </span>: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom'])."<br/>" ."</p>"; 
                     }
                     if($auteur['role']==4){
-                        echo "Préface: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom']); 
+                        echo " <p> <span class ='tdetail'> Préface </span>: ".HtmlSpecialChars($auteur['prenom'])." ".HtmlSpecialChars($auteur['nom']) ."</p>"; 
                     }
                 }
 
                    
                 ?>
-                Publié en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
-                <?php echo "Genre: " . HtmlSpecialChars($donnees['genre'])?><br/>
-                <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?><br/>
+                <?php echo "<p> <span class ='tdetail'> Publié en </span> : " .htmlSpecialChars($donnees['annee']) ."</p>" ; ?>
+                <?php echo "<p> <span class ='tdetail'> Genre </span> : " .HtmlSpecialChars($donnees['genre']) ."</p>" ?>
+                <?php echo "<p> <span class ='tdetail'> Editeur </span>: ".HtmlSpecialChars($donnees['editeur']) ."</p>" ?>
                 <?php if(isset($donnees['nbpages'])){
-                    echo "Nombre de Pages:".HtmlSpecialChars($donnees['nbpages']);
-                }?><br/>
-                <?php echo "Identifiant:".HtmlSpecialChars($donnees['isbn'])?><br/>
-                <?php echo "Disponible en ".HtmlSpecialChars($donnees['langue'])?><br/>
+                    echo "<p> <span class ='tdetail'> Nombre de Pages </span> :".HtmlSpecialChars($donnees['nbpages']) ."</p>";
+                }?>
+                <?php echo "<p> <span class ='tdetail'> Identifiant </span>:".HtmlSpecialChars($donnees['isbn']) ."</p>"?>
+                <?php echo "<p> <span class ='tdetail'> Disponible en </span> ".HtmlSpecialChars($donnees['langue']) ."</p>"?>
 
                 <a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  name="modify" value="Modifier" ></input></a>
+                <input type="button" name="resa" value="réserver">
 
                 
             </p>

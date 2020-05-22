@@ -73,17 +73,17 @@ $author_list=$query2->fetchAll();
         <div id = "text_Livre">
         <!-- affichage de la liste des livres -->
             <p id="affich_Liv"> <?php 
-            echo "Titre: ".
-            HtmlSpecialChars($donnees['titre']); ?><br />
-
+            echo  " Titre: ".
+            HtmlSpecialChars($donnees['titre'])." ";($donnees['titre']); ?><br/>
             <?php 
-                echo "Ecrivain: ".HtmlSpecialChars($donnees['prenom'])." ".HtmlSpecialChars($donnees['nom']); 
+                echo " Ecrivain: ".HtmlSpecialChars($donnees['prenom'])." ".HtmlSpecialChars($donnees['nom']); 
             ?>
             <br/>
             en : <?php echo HtmlSpecialChars($donnees['annee']);?><br/>
             <?php echo "Genre: " .HtmlSpecialChars($donnees['genre'])?><br/>
             <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur'])?>
             <a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  name="modify" value="Modifier" ></input></a>
+            <input type="button" name="resa" value="Réserver">
         </p>
             
         </div>
