@@ -54,8 +54,8 @@ $auteurs = $query2->fetchAll();
             <div id = "text_Livre">
             <!-- affichage des détails du livre -->
             <p id="affich_Liv"> <?php 
-                echo "Titre: ".
-                HtmlSpecialChars($donnees['titre']); ?><br/>
+                echo "<p id='titre'> Titre: ".
+                HtmlSpecialChars($donnees['titre'])."</p>"; ?><br/>
 
                 <?php
                 foreach($auteurs as $auteur){
