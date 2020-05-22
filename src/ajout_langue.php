@@ -8,7 +8,7 @@
    $langueliste = $languesearch->fetchAll();
 
     ?>
-
+<a href="ajouter_livre.php"><input type="button" name="retour" value="Retour"></a>
     <form method="post" action="ajout_langue.php" name="addBook">
         <div id="formulaire">   
             <p>Les Langues</p>
@@ -32,8 +32,8 @@
                     VALUES (?)
                     ');
                     $addlangue->execute(array($_POST['langue']));
+                    header('Location: ajout_langue.php');
                     echo "<p>La langue a bien été ajouté!</p>";
-                    header('Location: ajout_genre.php');
                 }
                 else{
                     $_POST['langue'] = NULL;

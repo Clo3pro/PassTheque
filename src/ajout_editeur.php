@@ -6,7 +6,7 @@
     $editeursearch = $pdo->query($editeursearch);
     $editeurliste = $editeursearch->fetchAll();
     ?>
-
+    <a href="ajouter_livre.php"><input type="button" name="retour" value="Retour"></a>
     <form method="post" action="ajout_editeur.php" name="addBook">
         <div id="formulaire">   
             <p>Le nom de l'éditeur</p>
@@ -30,8 +30,8 @@
                     VALUES (?)
                     ');
                     $addEditeur->execute(array($_POST['editeur']));
+                    header('Location: ajout_editeur.php');
                     echo "<p>L'Editeur a bien été ajouté!</p>";
-                    header('Location: ajout_genre.php');
                 }
                 else{
                     $_POST['editeur'] = NULL;

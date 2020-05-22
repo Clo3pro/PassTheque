@@ -82,11 +82,14 @@ $auteurs = $query2->fetchAll();
                     echo "<p> <span class ='tdetail'> Nombre de Pages </span> :".HtmlSpecialChars($donnees['nbpages']) ."</p>";
                 }?>
                 <?php echo "<p> <span class ='tdetail'> Identifiant </span>:".HtmlSpecialChars($donnees['isbn']) ."</p>"?>
-                <?php echo "<p> <span class ='tdetail'> Disponible en </span> ".HtmlSpecialChars($donnees['langue']) ."</p>"?>
-
-                <a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  name="modify" value="Modifier" ></input></a>
-                <input type="button" name="resa" value="réserver">
-
+                <?php echo "<p> <span class ='tdetail'> Disponible en </span> ".HtmlSpecialChars($donnees['langue']) ."</p>";
+                    if(isset($_SESSION['email'])){
+                    echo "<a href='details.php?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
+                   }
+                   if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
+                       echo '<a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees["isbn"])><input type="button"  name="modify" value="Modifier" ></input></a>';
+                   }
+                   ?>
                 
             </p>
             

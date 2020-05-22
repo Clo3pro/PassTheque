@@ -30,14 +30,20 @@ if(isset($_SESSION['email']) && (isset($_GET["empty"]) && $_GET["empty"]=="true"
                     <li><a href="accueil.php">Accueil</a></li>
                     <li><a href="exploration.php">Explorer</a></li>
                     <li><a href="ajouter_livre.php">Ajouter</a></li>
+                    
                 <?php
                 //var_dump($_SESSION);
                 if(isset($_SESSION['email']) && $_SESSION['niveauAcces'] == 1){
                     echo' <li><a href="admin.php">Admin</a></li>';
                 }
                 if(isset($_SESSION['email'])){
+                    echo " <li><a href='#'>Achat</a>";
+                    echo'<ul>
+                        <li><a href="#">Mes réservation</a></li>
+                        <li><a href="panier.php">Panier</a></li>
+                         </ul>
+                         </li>';
                     echo "<li><a href='deconnexion.php'>Déconnexion</a></li>";
-                    
                     }else{
                  echo"   <li><a href='connexion.php'>Connexion</a></li>";
                     

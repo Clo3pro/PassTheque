@@ -5,14 +5,14 @@
          <?php 
          
             if(isset($_SESSION['email']) && $_SESSION['email'] != NULL){
-                echo" <h2 class='title'> Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom']."!</h2>";
+                echo" <h2 class='title'> Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom']."!</h2><br/>";
             }else{
-                echo '<aside class="aside">
-                <?php include("inscription.php")?>
-                </aside>';
+                
+                echo '<aside class="aside">';
+                 include("inscription.php");
+                echo '</aside>'; 
             }
         ?> 
-         
             <div class="title">
            
                 <h2>Nos Nouveautés</h2>

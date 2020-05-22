@@ -8,7 +8,7 @@
    $genreliste = $genresearch->fetchAll();
 
     ?>
-
+    <a href="ajouter_livre.php"><input type="button" name="retour" value="Retour"></a>
     <form method="post" action="ajout_genre.php" name="addBook">
         <div id="formulaire">   
             <p>Les Genres</p>
@@ -32,8 +32,8 @@
                     VALUES (?)
                     ');
                     $addgenre->execute(array($_POST['genre']));
-                    echo "<p>Le Genre a bien été ajouté!</p>";
                     header('Location: ajout_genre.php');
+                    echo "<p>Le Genre a bien été ajouté!</p>";
                 }
                 else{
                     $_POST['genre'] = NULL;

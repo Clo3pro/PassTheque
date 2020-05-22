@@ -8,7 +8,7 @@
    $auteurliste = $auteursearch->fetchAll();
 
     ?>
-
+    <a href="ajouter_livre.php"><input type="button" name="retour" value="Retour"></a>
     <form method="post" action="ajout_personne.php" name="addBook">
         <div id="formulaire">   
             <p>Le nom de la personne</p>
@@ -33,8 +33,8 @@
                     VALUES (?,?)
                     ');
                     $addEditeur->execute(array($_POST['nomPersonne'],$_POST['prenomPersonne']));
+                    header('Location: ajout_personne.php');
                     echo "<p>La personne a bien été ajouté!</p>";
-                    header('Location: ajout_genre.php');
                 }
                 else{
                     $_POST['nomPersonne'] = NULL;
