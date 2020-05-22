@@ -31,15 +31,14 @@ if(isset($_GET["empty"]) && $_GET["empty"]=="true"){
                     <li><a href="exploration.php">Explorer</a></li>
                     <li><a href="ajouter_livre.php">Ajouter</a></li>
                 <?php
-                var_dump($_SESSION);
-                if($_SESSION['niveauAcces']=0){
-                    echo "<li><a href='deconnexion.php'>Déconnexion</a></li>";
-                }elseif($_SESSION['niveauAcces'] = 1){
+                //var_dump($_SESSION);
+                if($_SESSION['niveauAcces'] = 1){
                     echo' <li><a href="admin.php">Admin</a></li>';
+                }
+                if(isset($_SESSION['email'])){
                     echo "<li><a href='deconnexion.php'>Déconnexion</a></li>";
                     
-                    
-                }else{
+                    }else{
                  echo"   <li><a href='connexion.php'>Connexion</a></li>";
                     
                 }?>

@@ -2,14 +2,17 @@
 
     <div id="wrapper">
         <div class="container">
-    <?php if( $_SESSION != NULL){
-        echo" <h2 class='title'> Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom']."!</h2>";
-    }else{
-        echo '<aside class="aside">
-        <?php include("inscription.php")?>
-    </aside>';
-    }
-    ?>
+    <!-- <?php if( $_SESSION['niveauAcces'] !=NULL){
+             echo" <h2 class='title'> Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom']."!</h2>";
+         }else{
+            echo '<aside class="aside">
+            <?php include("inscription.php")?>
+             </aside>';
+        }
+    ?> -->
+            <aside class="aside">
+            <?php include("inscription.php")?>
+             </aside>
             <div class="title">
            
                 <h2>Nos Nouveautés</h2>
