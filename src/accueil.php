@@ -3,7 +3,7 @@
     <div id="wrapper">
         <div class="container">
          <?php 
-
+         
             if(isset($_SESSION['email']) && $_SESSION['email'] != NULL){
                 echo" <h2 class='title'> Bonjour ".$_SESSION['prenom']." ".$_SESSION['nom']."!</h2>";
             }else{

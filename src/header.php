@@ -1,8 +1,8 @@
 <?php  
 session_start();
 include("connexion_db.php");
-if(isset($_GET["empty"]) && $_GET["empty"]=="true"){
-    $_SESSION['panier']= array();
+if(isset($_SESSION['email']) && (isset($_GET["empty"]) && $_GET["empty"]=="true")){
+     $_SESSION['panier']= array();
 }?>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@ if(isset($_GET["empty"]) && $_GET["empty"]=="true"){
                     <li><a href="ajouter_livre.php">Ajouter</a></li>
                 <?php
                 //var_dump($_SESSION);
-                if($_SESSION['niveauAcces'] = 1){
+                if(isset($_SESSION['email']) && $_SESSION['niveauAcces'] == 1){
                     echo' <li><a href="admin.php">Admin</a></li>';
                 }
                 if(isset($_SESSION['email'])){

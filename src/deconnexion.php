@@ -3,10 +3,11 @@ session_start();
 $_SESSION = array();
 session_destroy();
 unset($_SESSION);
-include('header.php');
+header("Location: accueil.php");
+// include('header.php');
 ?>
-<h2 class='title'> Session terminée! retournez à l'<a href='accueil.php'>Accueil</a></h2>
+<!-- <h2 class='title'> Session terminée! retournez à l'<a href='accueil.php'>Accueil</a></h2> -->
 
-<?php
+<!-- <?php
 include('bas.php');
-?>
+?> -->

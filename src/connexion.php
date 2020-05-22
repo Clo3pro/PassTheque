@@ -15,7 +15,7 @@ $listeMembres = $membres->fetch();
         $_SESSION['nom'] = $listeMembres['nom'];
         $_SESSION['prenom']= $listeMembres['prenom'];
         $_SESSION['email']= $listeMembres['email'];
-        $_SESSION['admin']= $listeMembres['niveauAcces'];
+        $_SESSION['niveauAcces']= $listeMembres['niveauAcces'];
         $_SESSION['phone']= $listeMembres['telephone'];
        
         header('Location: accueil.php');
