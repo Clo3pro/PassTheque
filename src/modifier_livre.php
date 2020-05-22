@@ -24,7 +24,7 @@ $thisidlangueRequest = $pdo->prepare('
     $thisediteursearch = $pdo -> prepare('
     SELECT e.id, e.libelle
     FROM Editeur e 
-    JOIN Livre ON Editeur.id = Livre.langue
+    JOIN Livre ON Editeur.id = Livre.editeur
     WHERE Livre.isbn = ? ');
     $thisediteursearch->execute(array($_GET['for']));
     $thisediteur = $thisediteursearch->fetch();
@@ -147,12 +147,15 @@ var_dump($thisauteur);
 
             <p>Le nom de l'auteur</p>
                 <select name="auteur" id="auteur">
-                    <option value="<?=$thisauteur['id'] ?>"><?php $thisauteur['nom']." ".$thisauteur['prenom']?></option>
+                    <option value="<?=$thisauteur['id'] ?>" selected><?php $thisauteur['nom']." ".$thisauteur['prenom']?></option>
+                    <?php foreach($auteurliste as $auteur) : ?>
+                        <option value="<?=$auteur['id'] ?>"><?php $auteur['nom']." ".$auteur['prenom']?></option>
+                    <?php endforeach; ?>
                     </select>
                 
             <p>Le nom de l'éditeur</p>
                 <select name="editeur" id="editeur">
-                <option value="<?=$thisediteur['id'] ?>"><?php $thisediteur['libelle']?></option>
+                <option value="<?=$thisediteur['id'] ?>" selected><?php $thisediteur['libelle']?></option>
                     <?php foreach($editeurliste as $editeur) : ?>
                         <option value="<?=$editeur['id'] ?>"><?=$editeur['libelle'] ?></option>
                     <?php endforeach; ?>
@@ -160,7 +163,7 @@ var_dump($thisauteur);
 
             <p>Le nom de l'illustrateur</p>
                 <select name="illustrateur" id="illustrateur">
-                <option value="<?=$thisillustrateur['id'] ?>"><?php $thisillustrateur['nom']." ".$thisillustrateur['prenom']?></option>
+                <option value="<?=$thisillustrateur['id'] ?> " selected><?php $thisillustrateur['nom']." ".$thisillustrateur['prenom']?></option>
                     <?php foreach($illustrateurliste AS $illustrateur) : ?>
                         <option value ="<?=$illustrateur['id'] ?>"><?=$illustrateur['nom'] ?> <?=$illustrateur['prenom'] ?></option>
                     <?php endforeach; ?>

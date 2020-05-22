@@ -87,7 +87,7 @@ $auteurs = $query2->fetchAll();
                     echo "<a href='details.php?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
                    }
                    if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
-                       echo '<a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees["isbn"])><input type="button"  name="modify" value="Modifier" ></input></a>';
+                       echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></input></a>';
                    }
                    ?>
                 
