@@ -90,7 +90,7 @@ $auteurs = $query2->fetchAll();
                             echo "<p> <span class='tdetail'>En Rupture de Stock</span></p>";
                         }
                    
-                    echo "<a href='details.php?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
+                    echo "<a href='?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
                    }
                    if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
                        echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></input></a>';
@@ -104,6 +104,27 @@ $auteurs = $query2->fetchAll();
 
             $query->closeCursor(); // Termine le traitement de la requête
             $query2->closeCursor();
+
+            if (isset($_GET['id'])){
+                // echo $_GET['id'];
+            
+                // Ajouter le produit au panier
+                if(!isset($_SESSION['panier'])){
+                    $_SESSION['panier'] = array();
+                }
+                    // ajouter produit au panier
+                    
+                if(isset($_SESSION['panier'][$_GET['id']])){
+                        $_SESSION['panier'][$_GET['id']]++;
+                }else{
+                        $_SESSION['panier'][$_GET['id']]=1;
+            
+                }
+                var_dump($_SESSION['panier']);
+            }else{
+                echo "Pas de id <br>";
+                // ne pas ajouter le produit
+            }
             ?>
             </div>  
         </div>
