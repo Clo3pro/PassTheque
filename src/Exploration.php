@@ -83,7 +83,7 @@ $author_list=$query2->fetchAll();
             <?php echo "Genre: " .HtmlSpecialChars($donnees['genre'])?><br/>
             <?php echo "Editeur: ".HtmlSpecialChars($donnees['editeur']);
             if(isset($_SESSION['email'])){
-             echo "<a href='exploration.php?id=".$donnees['isbn']."'><input type='button' name='resa' value='Réserver'></a>";
+             echo "<a href='?id=".$donnees['isbn']."'><input type='button' name='resa' value='Réserver'></a>";
             }
             if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
                 echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></a>';
@@ -110,9 +110,10 @@ $author_list=$query2->fetchAll();
                 
             if(isset($_SESSION['panier'][$_GET['id']])){
                     $_SESSION['panier'][$_GET['id']]++;
+                    header('Location: exploration.php');
             }else{
                     $_SESSION['panier'][$_GET['id']]=1;
-        
+                    header('Location: exploration.php');
             }
             var_dump($_SESSION['panier']);
         }else{

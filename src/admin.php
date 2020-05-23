@@ -12,16 +12,22 @@ $book_list = $query->fetchAll();
 ?>
 
 
-
-        <section id="admin">
+    
+    <div>
+    <a id="link_details"  href= "liste_reservations_admin.php"><input type="button"  name="reserve_admin" value="Toutes les Réservations" ></input></a>
+    <a id="link_details"  href= "ajouter_livre.php"><input type="button"  name="add_livre" value="Ajouter un Livre" ></input></a>
+   
+    </div>
+ 
+        <section class="admin">
             <h1 id='titre_admin'>Tableau d'actions</h1>
             
-                <table id='tableau_admin'>
-                    <tr id= "ligne_table">
-                        <th id="case_table">Titre</th>
-                        <th id="case_table">ISBN</th>
-                        <th id="case_table">Auteur</th>
-                        <th id="case_table">Options</th>
+                <table class='tableau_admin'>
+                    <tr class= "ligne_table">
+                        <th class="case_table">Titre</th>
+                        <th class="case_table">ISBN</th>
+                        <th class="case_table">Auteur</th>
+                        <th class="case_table">Options</th>
                     </tr>
                     <?php
                     // boucle qui permet l'affichage de la liste des livres récupérés
@@ -30,11 +36,11 @@ $book_list = $query->fetchAll();
                     
                     ?>
                    
-                    <tr id= "ligne_table">
-                        <td id="case_table"><?php echo $donnees['titre']?></td>
-                        <td id="case_table2" value ="<?=$donnees['isbn']?>"><?php echo $donnees['isbn']?></td>
-                        <td id="case_table"><?php echo $donnees['prenom']." ".$donnees['nom']?> </td>
-                        <td id="case_table"><a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  id="modifier" name="modify" value="Modifier" ></input></a>
+                    <tr class= "ligne_table">
+                        <td class="case_table"><?php echo $donnees['titre']?></td>
+                        <td class="case_table2" value ="<?=$donnees['isbn']?>"><?php echo $donnees['isbn']?></td>
+                        <td class="case_table"><?php echo $donnees['prenom']." ".$donnees['nom']?> </td>
+                        <td class="case_table"><a id="link_details"  href= "modifier_livre.php?for=<?=HtmlSpecialChars($donnees['isbn'])?>"><input type="button"  id="modifier" name="modify" value="Modifier" ></input></a>
                         <a id="link_details"  href= "supprimer.php?id=<?=HtmlSpecialChars($donnees['isbn'])?>" onclick= "return areYouSure()" ><input type="button" id= "supprimer" name="delete" value="Supprimer" ></input></a>
                         </td>
                         

@@ -138,7 +138,7 @@ $thisidlangueRequest = $pdo->prepare('
 
 
 
-        <form method="post" action="modifier_livre.php" name="addBook" onsubmit=" return checkForm()">
+        <form method="post" action="modifier_livre.php?for=<?=$_GET["for"]?>" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>uh-oh. Vous avez vu une erreur? modifiez les informations du livre!</p>
             <p>Le titre</p>

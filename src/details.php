@@ -4,7 +4,7 @@
 <?php 
 //requête qui récupère toutes les informations sur un livre spécifique dont on a récupérer l'isbn par l'url
 $query = $pdo->prepare('
-SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre,Livre.isbn,Livre.nbpages,Livre.annee,Langue.libelle AS langue
+SELECT * ,Editeur.libelle AS editeur,Genre.libelle AS genre,Livre.isbn,Livre.nbpages,Livre.stock,Livre.annee,Langue.libelle AS langue
 FROM Livre
 JOIN Auteur ON Livre.isbn = Auteur.idLivre
 JOIN Personne ON Auteur.idPersonne = Personne.id
@@ -84,7 +84,15 @@ $auteurs = $query2->fetchAll();
                 <?php echo "<p> <span class ='tdetail'> Identifiant </span>:".HtmlSpecialChars($donnees['isbn']) ."</p>"?>
                 <?php echo "<p> <span class ='tdetail'> Disponible en </span> ".HtmlSpecialChars($donnees['langue']) ."</p>";
                     if(isset($_SESSION['email'])){
-                    echo "<a href='details.php?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
+                        if(isset($_SESSION['panier']) && isset($_SESSION['panier'][$_GET['id']]) && ($_SESSION['panier'][$_GET['isbn']]<5)){
+                            echo "<p>".HtmlSpecialChars($donnees['stock']) ." <span class ='tdetail'> Exemplaires disponibles </span> </p>";
+                        }else{
+                            echo "<p> <span class='tdetail'>En Rupture de Stock</span></p>";
+                        }
+                   
+                  
+                    echo "<a href='details.php?isbn=".$donnees['isbn']."&ajout=true'><input type='button' name='resa' value='Réserver'></a>";
+            
                    }
                    if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
                     echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></a>';
@@ -98,6 +106,30 @@ $auteurs = $query2->fetchAll();
 
             $query->closeCursor(); // Termine le traitement de la requête
             $query2->closeCursor();
+
+                   
+                    if (isset($_GET['isbn']) && isset($_GET['ajout'])){
+                        // echo $_GET['id'];
+                    
+                        // Ajouter le produit au panier
+                        if(!isset($_SESSION['panier'])){
+                            $_SESSION['panier'] = array();
+                        }
+                            // ajouter produit au panier
+                            
+                        if(isset($_SESSION['panier'][$_GET['isbn']])){
+                                $_SESSION['panier'][$_GET['isbn']]++;
+                        }else{
+                                $_SESSION['panier'][$_GET['isbn']]=1;
+                    
+                        }
+                       // var_dump($_SESSION['panier']);
+                    }else{
+                        echo "Pas de id <br>";
+                        // ne pas ajouter le produit
+                    }
+                
+            
             ?>
             </div>  
         </div>

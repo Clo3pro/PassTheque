@@ -1,17 +1,20 @@
 <?php 
 session_start();
 include("header.php");
-$membres = $pdo ->prepare('
-SELECT *
-FROM Membre
-WHERE email=?');
-$membres -> execute(array($_POST['mail']));
-$listeMembres = $membres->fetch();
 
 //  $goodPassword = password_verify($_POST['password'],$listeMembres['motDePasse']);
-
+    if(isset($_POST['mail'])){
+        $membres = $pdo ->prepare('
+        SELECT *
+        FROM Membre
+        WHERE email=?');
+        $membres -> execute(array($_POST['mail']));
+        $listeMembres = $membres->fetch();
+        
+    }
     if(isset($_POST['mail']) && ($_POST['password'] == $listeMembres['motDePasse'])){
         $_SESSION['connexion']=true;
+        $_SESSION['id']= $listeMembres['id'];
         $_SESSION['nom'] = $listeMembres['nom'];
         $_SESSION['prenom']= $listeMembres['prenom'];
         $_SESSION['email']= $listeMembres['email'];
@@ -19,9 +22,11 @@ $listeMembres = $membres->fetch();
         $_SESSION['phone']= $listeMembres['telephone'];
        
         header('Location: accueil.php');
+    }elseif(isset($_POST['mail']) && ($_POST['password'] != $listeMembres['motDePasse'])){
+
+        echo "<h3 class='title'>Mot de passe ou adresse mail erroné ! veuillez réessayer</h3>";
     }else{
-        
-        echo "Mot de passe ou adresse mail erroné ! veuillez réessayer";
+        echo'<h3 class="title">Veuillez saisir vos identifiants</h3>';
     }
 ?>
 
