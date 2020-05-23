@@ -88,7 +88,6 @@ $auteurs = $query2->fetchAll();
                    }
                    if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
                     echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></a>';
-
                    }
                    ?>
                 
