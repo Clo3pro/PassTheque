@@ -110,9 +110,10 @@ $author_list=$query2->fetchAll();
                 
             if(isset($_SESSION['panier'][$_GET['id']])){
                     $_SESSION['panier'][$_GET['id']]++;
+                    header('Location: exploration.php');
             }else{
                     $_SESSION['panier'][$_GET['id']]=1;
-        
+                    header('Location: exploration.php');
             }
             var_dump($_SESSION['panier']);
         }else{

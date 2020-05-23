@@ -2,7 +2,7 @@
 // tentative de connexion à la base de données
 try{
     $pdo = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', 'root');
-    // $pdo = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
+    //$pdo = new PDO('mysql:host=localhost;dbname=passTheque;charset=utf8', 'root', '');
 }
 // Si impossible de se connecter, affichage d'un message d'erreur
 catch(Exception $e){

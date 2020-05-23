@@ -42,12 +42,12 @@ background-color: #FFFFFF;
 .title{
 text-align: center;
 }
-#grille_auteur{
+/* #grille_auteur{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-}
+} */
 
 /*********************************************************************************/
 /*  Menu                                                                         */
@@ -302,32 +302,43 @@ margin: 3% 12% 3% 12%;
 /************************/
 
 
-#admin{
+.admin{
 margin-top: 1%;
 align-content: center;
 align-items: center;
+margin-left:5%;
+
+}
+.admin2{
+margin-top: 1%;
+align-content: center;
+align-items: center;
+margin-left:7%;
 
 }
 #titre_admin{
 text-align: center;
 }
-#tableau_admin{
+.tableau_admin{
 background-color: antiquewhite;
 
 border: medium solid #2C3E50;
 border-radius: 18px 18px 18px 18px;
 max-width: 100em;
+margin-left: 200px;
+margin-top:30px;
+margin-bottom: 30px;
 
 
 }
-#ligne_table #case_table{
+.ligne_table .case_table{
 text-align: center;
 border: thin solid #2C3E50;
 border-collapse: collapse;
 
 }
 
-#case_table2{
+.case_table2{
     text-align: center;
 border: thin solid #2C3E50;
 border-collapse: collapse;

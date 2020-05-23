@@ -20,12 +20,14 @@ $thisidlangueRequest = $pdo->prepare('
     WHERE a.idRole = 1 AND a.idLivre =?');
     $thisauteursearch->execute(array($_GET['for']));
     $thisauteur = $thisauteursearch->fetch();
+    
 
     $thisediteursearch = $pdo -> prepare('
     SELECT e.id, e.libelle
     FROM Editeur e 
-    JOIN Livre ON Editeur.id = Livre.editeur
-    WHERE Livre.isbn = ? ');
+    JOIN Livre l 
+        ON e.id = l.editeur
+    WHERE l.isbn = ? ');
     $thisediteursearch->execute(array($_GET['for']));
     $thisediteur = $thisediteursearch->fetch();
 
@@ -38,7 +40,7 @@ $thisidlangueRequest = $pdo->prepare('
     $thisillustrateursearch->execute(array($_GET['for']));
     $thisillustrateur = $thisillustrateursearch->fetch();
 
-    $thistraducteursearch =$pdo->prepare('
+    $thistraducteursearch = $pdo->prepare('
     SELECT DISTINCT p.nom, p.prenom, p.id
     FROM Personne p
     JOIN Auteur a ON p.id = a.idPersonne
@@ -80,7 +82,7 @@ $thisidlangueRequest = $pdo->prepare('
     $idlangueliste = $idlangueRequest->fetchAll();
 
     $auteursearch ='
-    SELECT DISTINCT p.nom, p.prenom, r.id
+    SELECT DISTINCT p.nom, p.prenom, p.id
     FROM Personne p
     JOIN Auteur a ON p.id = a.idPersonne
     JOIN Role r ON a.idRole = r.id
@@ -127,14 +129,16 @@ $thisidlangueRequest = $pdo->prepare('
     FROM Genre g';
     $genresearch = $pdo->query($genresearch);
     $genreliste = $genresearch->fetchAll();
+
+   
 }
 
-var_dump($thisauteur);
+
 ?>
 
 
 
-        <form method="post" action="modifier_livre.php" name="addBook" onsubmit=" return checkForm()">
+        <form method="post" action="modifier_livre.php?for=<?=$_GET["for"]?>" name="addBook" onsubmit=" return checkForm()">
         <div id="formulaire">
             <p>uh-oh. Vous avez vu une erreur? modifiez les informations du livre!</p>
             <p>Le titre</p>
@@ -147,41 +151,86 @@ var_dump($thisauteur);
 
             <p>Le nom de l'auteur</p>
                 <select name="auteur" id="auteur">
-                    <option value="<?=$thisauteur['id'] ?>" selected><?php $thisauteur['nom']." ".$thisauteur['prenom']?></option>
-                    <?php foreach($auteurliste as $auteur) : ?>
-                        <option value="<?=$auteur['id'] ?>"><?php $auteur['nom']." ".$auteur['prenom']?></option>
-                    <?php endforeach; ?>
+                    <?php foreach ($auteurliste as $auteur){
+                        if($auteur['id'] == $thisauteur['id']){
+                            echo ('<option value="'.$thisauteur['id'].'" selected="selected">'.$thisauteur['nom'] .' ' .$thisauteur['prenom'].'</option>');
+                        }
+                        else{
+                            echo ('<option value="' .$auteur['id'].'">'.$auteur['nom'] .' '  .$auteur['prenom'] .'</option>');
+                        }
+
+                    }
+                    ?>
+                        
                     </select>
                 
             <p>Le nom de l'éditeur</p>
                 <select name="editeur" id="editeur">
-                <option value="<?=$thisediteur['id'] ?>" selected><?php $thisediteur['libelle']?></option>
-                    <?php foreach($editeurliste as $editeur) : ?>
-                        <option value="<?=$editeur['id'] ?>"><?=$editeur['libelle'] ?></option>
-                    <?php endforeach; ?>
+                        <?php foreach($editeurliste as $editeur){
+                            if($editeur['id'] == $thisediteur['id']){
+                                echo('<option value="'.$thisediteur['id'].'" selected="selected">'.$thisediteur['libelle'].'</option>');
+                            }
+                            else{
+                                echo('<option value="'.$editeur['id'].'">'.$editeur['libelle'].'</option>');
+                            }
+                        }
+                        ?>
                 </select>
+
 
             <p>Le nom de l'illustrateur</p>
                 <select name="illustrateur" id="illustrateur">
-                <option value="<?=$thisillustrateur['id'] ?> " selected><?php $thisillustrateur['nom']." ".$thisillustrateur['prenom']?></option>
-                    <?php foreach($illustrateurliste AS $illustrateur) : ?>
-                        <option value ="<?=$illustrateur['id'] ?>"><?=$illustrateur['nom'] ?> <?=$illustrateur['prenom'] ?></option>
-                    <?php endforeach; ?>
+                <?php foreach ($illustrateurliste as $illustrateur){
+                        if($illustrateur['id'] == $thisillustrateur['id']){
+                            echo ('<option value="' .$thisillustrateur['id'].'" selected="selected">' .$thisillustrateur['nom'] .' ' .$thisillustrateur['prenom'] .'</option>');
+                        }
+                        elseif(!$thisillustrateur){
+                            echo ('<option value="" selected="selected"></option>');
+                            foreach($illustrateurliste as $illustrateur){
+                                echo ('<option value="' .$illustrateur['id'].'">'.$illustrateur['nom'] .' '  .$illustrateur['prenom'] .'</option>');
+                            }
+                        }
+
+                        else{
+                            echo ('<option value="' .$illustrateur['id'].'">'.$illustrateur['nom'] .' '  .$illustrateur['prenom'] .'</option>');
+                        }
+
+                    }
+                    ?>
                 </select>
 
             <p>Le nom de la preface</p>
                 <select name="preface" id="preface">
-                    <option value=""></option>
-                    <?php foreach($prefaceliste AS $preface) : ?>
-                        <option value ="<?=$preface['id'] ?>"><?=$preface['nom'] ?> <?=$preface['prenom'] ?></option>
-                    <?php endforeach; ?>
+                <?php foreach ($prefaceliste as $preface){
+                        if($preface['id'] == $thispreface['id']){
+                            echo ('<option value="'.$thispreface['id'].'" selected="selected">'.$thispreface['nom'] .' ' .$thispreface['prenom'].'</option>');
+                        }
+                        elseif(!$thisillustrateur){
+                            echo ('<option value="" selected="selected"></option>');
+                            foreach($prefaceliste as $preface){
+                                echo ('<option value="' .$preface['id'].'">'.$preface['nom'] .' '  .$preface['prenom'] .'</option>');
+                            }
+                        }
+                        else{
+                            echo ('<option value="' .$preface['id'].'">'.$preface['nom'] .' ' .$preface['prenom'] .'</option>');
+                        }
+
+                    }
+                    ?>
                 </select>
 
             <p>Le genre du livre</p>
                 <select name="genre" id="genre">
-                    <?php foreach($genreliste AS $genre) : ?>
-                        <option value ="<?=$genre['id'] ?>"><?=$genre['libelle']?></option>
-                    <?php endforeach; ?>
+                <?php foreach ($genreliste as $genre){
+                        if($genre['id'] == $thisgenre['id']){
+                            echo ('<option value="'.$thisgenre['id'].'" selected="selected">'.$thisgenre['libelle'].'</option>');
+                        }
+                        else{
+                            echo ('<option value="' .$genre['id'].'">'.$genre['libelle'].'</option>');
+                        }
+
+                    }
+                    ?>
                 </select>
             
             <p>L'année de publication</p>
@@ -190,17 +239,37 @@ var_dump($thisauteur);
 
             <p>La langue du livre</p>
                 <select name="langue" id="langue">
-                    <?php foreach($idlangueliste AS $langue) : ?>
-                    <option value= "<?= $langue['id'] ?>"><?=$langue['libelle'] ?></option>
-                    <?php endforeach;?>
+                <?php foreach ($idlangueliste as $langue){
+                        if($langue['id'] == $thisidlangue['id']){
+                            echo ('<option value="'.$thisidlangue['id'].'" selected="selected">'.$thisidlangue['libelle'].'</option>');
+                        }
+                        else{
+                            echo ('<option value="' .$langue['id'].'">'.$langue['libelle'].'</option>');
+                        }
+
+                    }
+                    ?>
                 </select>
 
             <p>Le nom du traducteur</p>
-                <select name="traducteur" id="traducteur" value =''>
-                    <option value=""></option>
-                    <?php foreach($traducteurliste AS $traducteur) : ?>
-                        <option value ="<?=$traducteur['id'] ?>"><?=$traducteur['nom'] ?> <?=$traducteur['prenom'] ?></option>
-                    <?php endforeach; ?>
+                <select name="traducteur" id="traducteur">
+            <?php foreach ($traducteurliste as $traducteur){
+                        if($traducteur['id'] == $thistraducteur['id']){
+                            echo ('<option value="'.$thistraducteur['id'].'" selected="selected">'.$thistraducteur['nom'] .' ' .$thistraducteur['prenom'].'</option>');
+                        }
+                        elseif(!$thistraducteur){
+                            echo ('<option value="" selected="selected"></option>');
+                            foreach($traducteurliste as $traducteur){
+                                echo ('<option value="' .$traducteur['id'].'">'.$traducteur['nom'] .' '  .$traducteur['prenom'] .'</option>');
+                            }
+                        break;
+                        }
+                        else{
+                            echo ('<option value="' .$traducteur['id'].'">'.$traducteur['nom'] .' ' .$traducteur['prenom'] .'</option>');
+                        }
+
+                    }
+                    ?>
                 </select>
 
             <p>Le nombre de pages</p>

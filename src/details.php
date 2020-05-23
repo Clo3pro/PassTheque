@@ -84,16 +84,19 @@ $auteurs = $query2->fetchAll();
                 <?php echo "<p> <span class ='tdetail'> Identifiant </span>:".HtmlSpecialChars($donnees['isbn']) ."</p>"?>
                 <?php echo "<p> <span class ='tdetail'> Disponible en </span> ".HtmlSpecialChars($donnees['langue']) ."</p>";
                     if(isset($_SESSION['email'])){
-                        if(isset($_SESSION['panier']) && ($_SESSION['panier'][$_GET['id']]<5)){
+                        if(isset($_SESSION['panier']) && isset($_SESSION['panier'][$_GET['id']]) && ($_SESSION['panier'][$_GET['isbn']]<5)){
                             echo "<p>".HtmlSpecialChars($donnees['stock']) ." <span class ='tdetail'> Exemplaires disponibles </span> </p>";
                         }else{
                             echo "<p> <span class='tdetail'>En Rupture de Stock</span></p>";
                         }
                    
-                    echo "<a href='?id=".HtmlSpecialChars($donnees['isbn'])."'><input type='button' name='resa' value='Réserver'></a>";
+                  
+                    echo "<a href='details.php?isbn=".$donnees['isbn']."&ajout=true'><input type='button' name='resa' value='Réserver'></a>";
+            
                    }
                    if(isset($_SESSION['email']) && $_SESSION['niveauAcces']==1){
-                       echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></input></a>';
+                    echo '<a id="link_details"  href= "modifier_livre.php?for='.$donnees["isbn"].'"><input type="button"  name="modify" value="Modifier" ></a>';
+
                    }
                    ?>
                 
@@ -105,26 +108,29 @@ $auteurs = $query2->fetchAll();
             $query->closeCursor(); // Termine le traitement de la requête
             $query2->closeCursor();
 
-            if (isset($_GET['id'])){
-                // echo $_GET['id'];
-            
-                // Ajouter le produit au panier
-                if(!isset($_SESSION['panier'])){
-                    $_SESSION['panier'] = array();
-                }
-                    // ajouter produit au panier
+                   
+                    if (isset($_GET['isbn']) && isset($_GET['ajout'])){
+                        // echo $_GET['id'];
                     
-                if(isset($_SESSION['panier'][$_GET['id']])){
-                        $_SESSION['panier'][$_GET['id']]++;
-                }else{
-                        $_SESSION['panier'][$_GET['id']]=1;
+                        // Ajouter le produit au panier
+                        if(!isset($_SESSION['panier'])){
+                            $_SESSION['panier'] = array();
+                        }
+                            // ajouter produit au panier
+                            
+                        if(isset($_SESSION['panier'][$_GET['isbn']])){
+                                $_SESSION['panier'][$_GET['isbn']]++;
+                        }else{
+                                $_SESSION['panier'][$_GET['isbn']]=1;
+                    
+                        }
+                       // var_dump($_SESSION['panier']);
+                    }else{
+                        echo "Pas de id <br>";
+                        // ne pas ajouter le produit
+                    }
+                
             
-                }
-                var_dump($_SESSION['panier']);
-            }else{
-                echo "Pas de id <br>";
-                // ne pas ajouter le produit
-            }
             ?>
             </div>  
         </div>
